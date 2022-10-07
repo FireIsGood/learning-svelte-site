@@ -38,6 +38,11 @@ const { title } = Astro.props;
         font-family: "Open Sans", system-ui, sans-serif;
         color: var(--theme-text-main);
       }
+
+      hr {
+        border: none;
+        border-top: 2px solid var(--theme-hr);
+      }
     </style>
     <style>
       :root {
@@ -45,6 +50,7 @@ const { title } = Astro.props;
         --color-hue-alt: 130, 40%;
 
         --theme-bg: hsl(var(--color-hue-main), 96%);
+        --theme-hr: hsl(var(--color-hue-main), 30%);
 
         --theme-header: hsl(var(--color-hue-main), 86%);
         --theme-header-button-hover: hsl(var(--color-hue-main), 82%);
