@@ -1,7 +1,9 @@
 ---
 import type { AstroInstance } from "astro";
 
-const pages = await Astro.glob<AstroInstance & Page>("/src/pages/projects/*.astro");
+const pages = await Astro.glob<AstroInstance & Page>(
+  "/src/pages/projects/*.astro"
+);
 
 type Page = {
   title: string;
@@ -11,6 +13,8 @@ type Page = {
 pages.sort((a, b) => {
   return a.creationOrder - b.creationOrder;
 });
+
+const { subpage } = Astro.props;
 ---
 
 <header>
@@ -18,6 +22,14 @@ pages.sort((a, b) => {
     <a href="/learning-svelte" title="Home">
       <h1>Learning Svelte Site</h1>
     </a>
+    {
+      subpage && (
+        <span class="slash">/</span>
+        <p class="subpage">
+          {subpage}
+        </p>
+      )
+    }
     <button class="toggle-links">
       <svg
         xmlns="http://www.w3.org/2000/svg"
@@ -74,6 +86,16 @@ pages.sort((a, b) => {
     padding-inline: 1rem;
     height: 4rem;
     background-color: var(--theme-header);
+
+    .slash {
+      margin-inline: 1.5ch .5ch;
+      font-size: 1.25em;
+
+    }
+
+    .subpage {
+      margin-right: auto;
+    }
 
     .toggle-links {
       padding: 8px;
