@@ -3,12 +3,32 @@ import MainLayout from "../layouts/MainLayout.astro";
 ---
 
 <MainLayout title="Learning Svelte Site">
-    <p>Wow</p>
+  <section>
+    <h1>This is the main page</h1>
+    <p>
+      I'm learning Svelte! I've made this site to organize all the tutorial
+      projects I build in a easier to access place.
+    </p>
+    <p>
+      Unlike my Learning JS Site, I built this in
+      <a href="https://astro.build/">Astro</a>
+      so I could have features like the top bar you can see which is dynamically
+      created at build time to have all of my links. Also it's fun.
+    </p>
+  </section>
 </MainLayout>
 
 <style lang="scss">
+  section > * + * {
+    margin-top: 1rem;
+  }
+
   h1 {
     color: var(--theme-text-main-accent);
     text-align: center;
+  }
+
+  p {
+    line-height: 1.5;
   }
 </style>
