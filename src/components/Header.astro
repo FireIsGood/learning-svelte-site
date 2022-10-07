@@ -1,17 +1,15 @@
 ---
 import type { AstroInstance } from "astro";
 
-const pages = await Astro.glob("/src/pages/projects/*.astro");
+const pages = await Astro.glob<AstroInstance & Page>("/src/pages/projects/*.astro");
 
-type Page = AstroInstance & {
+type Page = {
   title: string;
   creationOrder: number;
 };
 
 pages.sort((a, b) => {
-  const page1 = a as Page;
-  const page2 = b as Page;
-  return page1.creationOrder - page2.creationOrder;
+  return a.creationOrder - b.creationOrder;
 });
 ---
 
@@ -40,8 +38,7 @@ pages.sort((a, b) => {
   <div class="header-links">
     <nav>
       {
-        pages.map((pageData) => {
-          const page = pageData as Page;
+        pages.map((page) => {
           return (
             <a
               href={page.url}
