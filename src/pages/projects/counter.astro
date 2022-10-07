@@ -7,6 +7,16 @@ export const creationOrder = 1;
 ---
 
 <MainLayout title={title}>
-  <p>there should be a counter below this</p>
-  <Counter />
+  <section>
+    <p>there should be a counter below this</p>
+    <hr />
+    <br />
+    <Counter client:idle />
+  </section>
 </MainLayout>
+
+<style lang="scss">
+  section > * + * {
+    margin-top: 1rem;
+  }
+</style>
