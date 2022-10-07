@@ -1,0 +1,121 @@
+---
+import type { AstroInstance } from "astro";
+
+const pages = await Astro.glob("/src/pages/projects/*.astro");
+
+type Page = AstroInstance & {
+  title: string;
+  creationOrder: number;
+};
+
+pages.sort((a, b) => {
+  const page1 = a as Page;
+  const page2 = b as Page;
+  return page1.creationOrder - page2.creationOrder;
+});
+---
+
+<header>
+  <div class="header-main">
+    <a href="/" title="Home">
+      <h1>Learning Svelte Site</h1>
+    </a>
+    <button class="toggle-links">
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="40"
+        height="40"
+        fill="currentColor"
+        class="bi bi-list"
+        viewBox="0 0 16 16"
+      >
+        <path
+          fill-rule="evenodd"
+          d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z"
+        >
+        </path>
+      </svg>
+    </button>
+  </div>
+  <div class="header-links">
+    <nav>
+      {
+        pages.map((pageData) => {
+          const page = pageData as Page;
+          return (
+            <a
+              href={page.url}
+              class="subpage-link"
+              title={`link to ${page.title} subpage`}
+            >
+              {page.title}
+            </a>
+          );
+        })
+      }
+    </nav>
+  </div>
+</header>
+
+<style lang="scss">
+  // General Styles
+  a {
+    text-decoration: none;
+  }
+
+  h1 {
+    text-align: center;
+    color: var(--theme-text-main-accent);
+  }
+
+  // Main styles
+
+  .header-main {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-inline: 1rem;
+    height: 4rem;
+    background-color: var(--theme-header);
+
+    .toggle-links {
+      padding: 8px;
+      border: none;
+      background-color: transparent;
+
+      &:hover {
+        background-color: var(--theme-header-button-hover);
+      }
+      &:active {
+        background-color: var(--theme-header-button-active);
+      }
+
+      svg {
+        display: block;
+      }
+    }
+  }
+
+  .header-links {
+    nav {
+      display: flex;
+      background-color: var(--theme-header-link-bar);
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 1rem;
+      padding-block: 0.51rem;
+
+      .subpage-link {
+        color: var(--theme-header-link-text, inherit);
+        background-color: var(--theme-header-link-text-bg);
+        font-weight: 800;
+        font-size: 1.125rem;
+        padding: 0.5rem 1rem;
+
+        &:hover {
+          background-color: var(--theme-header-link-text-bg-hover);
+        }
+      }
+    }
+  }
+</style>

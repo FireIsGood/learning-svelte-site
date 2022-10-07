@@ -1,0 +1,12 @@
+---
+import MainLayout from "../../layouts/MainLayout.astro";
+import Counter from "../../components/counter.svelte";
+
+export const title = "Counter";
+export const creationOrder = 1;
+---
+
+<MainLayout title={title}>
+  <p>there should be a counter below this</p>
+  <Counter />
+</MainLayout>
