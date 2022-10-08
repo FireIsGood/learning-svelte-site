@@ -114,8 +114,14 @@ const subpageLink = isSubpage === false ? null : title;
         }
       }
 
+      label {
+        user-select: none;
+      }
       input + label {
         margin-left: 0.5rem;
+      }
+      label > input {
+        margin-right: 0.25rem;
         user-select: none;
       }
     </style>
