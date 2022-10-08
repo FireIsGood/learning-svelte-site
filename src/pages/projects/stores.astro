@@ -1,0 +1,23 @@
+---
+import MainLayout from "../../layouts/MainLayout.astro";
+import Stores from "../../components/stores.svelte";
+
+export const title = "Stores";
+export const creationOrder = 6;
+---
+
+<MainLayout title={title}>
+  <section>
+    <p>Stores example.</p>
+    <hr />
+    <div>
+      <Stores client:idle />
+    </div>
+  </section>
+</MainLayout>
+
+<style>
+  section > * + * {
+    margin-top: 1rem;
+  }
+</style>
