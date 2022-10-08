@@ -1,0 +1,23 @@
+---
+import MainLayout from "../../layouts/MainLayout.astro";
+import Todo from "../../components/todo.svelte";
+
+export const title = "Todo List";
+export const creationOrder = 5;
+---
+
+<MainLayout title={title}>
+  <section>
+    <p>This is the classic todo list.</p>
+    <hr />
+    <div>
+      <Todo client:idle />
+    </div>
+  </section>
+</MainLayout>
+
+<style>
+  section > * + * {
+    margin-top: 1rem;
+  }
+</style>
