@@ -86,6 +86,11 @@ let optionalClasses = [
         &:hover {
           border: 1px solid var(--theme-button-hover);
         }
+
+        &:disabled {
+          color: var(--theme-text-grey);
+          background-color: var(--theme-button-disabled);
+        }
       }
 
       input[type="checkbox"] {
@@ -151,6 +156,7 @@ let optionalClasses = [
         --theme-text-main-accent: hsl(var(--color-hue-main), 55%);
         --theme-text-alt: hsl(var(--color-hue-alt), 7%);
         --theme-text-alt-accent: hsl(var(--color-hue-alt), 55%);
+        --theme-text-grey: hsl(0, 0%, 60%);
 
         --theme-card: hsl(var(--color-hue-main), 86%);
         --theme-button: hsl(var(--color-hue-main), 84%);
@@ -158,6 +164,7 @@ let optionalClasses = [
         --theme-button-hover: hsl(var(--color-hue-main), 80%);
         --theme-button-active: hsl(var(--color-hue-main), 94%);
         --theme-button-inactive: hsl(var(--color-hue-main), 100%);
+        --theme-button-disabled: hsl(var(--color-hue-main), 92%);
       }
 
       body {
