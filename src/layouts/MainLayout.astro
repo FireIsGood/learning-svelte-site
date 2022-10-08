@@ -15,7 +15,11 @@ const subpageLink = isSubpage === false ? null : title;
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width" />
-    <link rel="icon" type="image/svg+xml" href="/learning-svelte-site/favicon.png" />
+    <link
+      rel="icon"
+      type="image/svg+xml"
+      href="/learning-svelte-site/favicon.png"
+    />
     <meta name="generator" content={Astro.generator} />
     <!-- OpenGraph Tags -->
 
@@ -72,6 +76,10 @@ const subpageLink = isSubpage === false ? null : title;
         padding: 0.25em;
         background-color: var(--theme-button-inactive);
         border: 1px solid var(--theme-button-active);
+
+        &:hover {
+          border: 1px solid var(--theme-button-hover);
+        }
       }
 
       input[type="checkbox"] {
@@ -92,8 +100,16 @@ const subpageLink = isSubpage === false ? null : title;
           border: 1px solid var(--theme-button-active);
         }
 
+        &:hover::before {
+          border: 1px solid var(--theme-button-hover);
+        }
+        &:active::before {
+          background-color: var(--theme-button-active);
+        }
+
         &:checked::before {
           content: "\2713";
+          color: var(--theme-button-text);
           background-color: var(--theme-button);
         }
       }
@@ -126,8 +142,9 @@ const subpageLink = isSubpage === false ? null : title;
 
         --theme-card: hsl(var(--color-hue-main), 86%);
         --theme-button: hsl(var(--color-hue-main), 84%);
-        --theme-button-hover: hsl(var(--color-hue-main), 88%);
-        --theme-button-active: hsl(var(--color-hue-main), 86%);
+        --theme-button-text: hsl(var(--color-hue-alt), 54%);
+        --theme-button-hover: hsl(var(--color-hue-main), 80%);
+        --theme-button-active: hsl(var(--color-hue-main), 94%);
         --theme-button-inactive: hsl(var(--color-hue-main), 100%);
       }
 
