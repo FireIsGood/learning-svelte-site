@@ -4,10 +4,16 @@ import Header from "../components/Header.astro";
 export interface Props {
   title: string;
   isSubpage?: boolean;
+  noPad?: boolean;
+  noMaxWidth?: boolean;
 }
 
-const { title, isSubpage } = Astro.props;
+const { title, isSubpage, noPad, noMaxWidth } = Astro.props;
 const subpageLink = isSubpage === false ? null : title;
+let optionalClasses = [
+  noPad ? "no-pad" : null,
+  noMaxWidth ? "no-max-width" : null,
+];
 ---
 
 <!DOCTYPE html>
@@ -125,7 +131,7 @@ const subpageLink = isSubpage === false ? null : title;
         user-select: none;
       }
     </style>
-    <style>
+    <style lang="scss">
       :root {
         --color-hue-main: 290, 40%;
         --color-hue-alt: 130, 40%;
@@ -163,6 +169,13 @@ const subpageLink = isSubpage === false ? null : title;
         margin-inline: auto;
         padding: 1rem;
 
+        &.no-pad {
+          padding: 0;
+        }
+        &.no-max-width {
+          max-width: initial;
+        }
+
         > * + * {
           margin-top: 1rem;
         }
@@ -171,7 +184,7 @@ const subpageLink = isSubpage === false ? null : title;
   </head>
   <body>
     <Header subpage={subpageLink} />
-    <main>
+    <main class={optionalClasses.join(" ")}>
       <slot />
     </main>
   </body>
