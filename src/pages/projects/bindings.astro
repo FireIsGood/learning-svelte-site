@@ -1,0 +1,22 @@
+---
+import MainLayout from "../../layouts/MainLayout.astro";
+import Bindings from "../../components/binding.svelte";
+
+export const title = "Bindings";
+export const creationOrder = 3;
+---
+
+<MainLayout title={title}>
+  <section>
+    <p>This page talks about binding of inputs</p>
+    <div>
+      <Bindings client:idle />
+    </div>
+  </section>
+</MainLayout>
+
+<style>
+  section > * + * {
+    margin-top: 1rem;
+  }
+</style>
