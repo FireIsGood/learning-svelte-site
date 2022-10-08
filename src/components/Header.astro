@@ -1,4 +1,5 @@
 ---
+import Header from "../components/header.svelte";
 import type { AstroInstance } from "astro";
 
 const pages = await Astro.glob<AstroInstance & Page>(
@@ -17,37 +18,21 @@ pages.sort((a, b) => {
 const { subpage } = Astro.props;
 ---
 
-<header>
-  <div class="header-main">
+<Header client:idle>
+  <div slot="header-main" class="header-logo">
     <a href="/learning-svelte-site" title="Home">
       <h1>Learning Svelte Site</h1>
     </a>
     {
       subpage && (
-        <span class="slash">/</span>
-        <p class="subpage">
-          {subpage}
-        </p>
+        <>
+          <span class="slash">/</span>
+          <p class="subpage">{subpage}</p>
+        </>
       )
     }
-    <button class="toggle-links">
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        width="40"
-        height="40"
-        fill="currentColor"
-        class="bi bi-list"
-        viewBox="0 0 16 16"
-      >
-        <path
-          fill-rule="evenodd"
-          d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z"
-        >
-        </path>
-      </svg>
-    </button>
   </div>
-  <div class="header-links">
+  <div slot="header-links">
     <nav>
       {
         pages.map((page) => {
@@ -64,7 +49,7 @@ const { subpage } = Astro.props;
       }
     </nav>
   </div>
-</header>
+</Header>
 
 <style lang="scss">
   // General Styles
@@ -79,18 +64,13 @@ const { subpage } = Astro.props;
 
   // Main styles
 
-  .header-main {
+  .header-logo {
     display: flex;
     align-items: center;
-    justify-content: space-between;
-    padding-inline: 1rem;
-    height: 4rem;
-    background-color: var(--theme-header);
-
   }
 
   .slash {
-    margin-inline: 1.5ch .5ch;
+    margin-inline: 1.5ch 0.5ch;
     font-size: 1.25em;
   }
 
@@ -98,42 +78,23 @@ const { subpage } = Astro.props;
     margin-right: auto;
   }
 
-  .toggle-links {
-    padding: 8px;
-    border: none;
-    background-color: transparent;
+  nav {
+    display: flex;
+    background-color: var(--theme-header-link-bar);
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+    padding-block: 0.51rem;
 
-    &:hover {
-      background-color: var(--theme-header-button-hover);
-    }
-    &:active {
-      background-color: var(--theme-header-button-active);
-    }
+    .subpage-link {
+      color: var(--theme-header-link-text, inherit);
+      background-color: var(--theme-header-link-text-bg);
+      font-weight: 800;
+      font-size: 1.125rem;
+      padding: 0.5rem 1rem;
 
-    svg {
-      display: block;
-    }
-  }
-  
-  .header-links {
-    nav {
-      display: flex;
-      background-color: var(--theme-header-link-bar);
-      justify-content: center;
-      flex-wrap: wrap;
-      gap: 1rem;
-      padding-block: 0.51rem;
-
-      .subpage-link {
-        color: var(--theme-header-link-text, inherit);
-        background-color: var(--theme-header-link-text-bg);
-        font-weight: 800;
-        font-size: 1.125rem;
-        padding: 0.5rem 1rem;
-
-        &:hover {
-          background-color: var(--theme-header-link-text-bg-hover);
-        }
+      &:hover {
+        background-color: var(--theme-header-link-text-bg-hover);
       }
     }
   }
@@ -146,8 +107,7 @@ const { subpage } = Astro.props;
       max-width: 10ch;
     }
     .slash {
-    margin-inline: 0 .5ch;
-
+      margin-inline: 0 0.5ch;
     }
   }
 </style>
