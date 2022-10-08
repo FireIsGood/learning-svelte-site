@@ -18,4 +18,4 @@ npm run build
 
 Creates files to `/docs` folder for github pages.
 
-NOTE: default base is `/learning-svelte` as configured in `astro.config.mjs`
+NOTE: default base is `/learning-svelte-site` as configured in `astro.config.mjs`

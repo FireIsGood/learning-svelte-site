@@ -7,5 +7,5 @@ export default defineConfig({
   integrations: [svelte()],
   outDir: "./docs",
   site: "https://fireisgood.github.io/",
-  base: "/learning-svelte",
+  base: "/learning-svelte-site",
 });
