@@ -26,7 +26,4 @@
   .container > * + * {
     margin-top: 1rem;
   }
-  button {
-    padding: 4px;
-  }
 </style>

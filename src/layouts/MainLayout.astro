@@ -35,7 +35,7 @@ const subpageLink = isSubpage === false ? null : title;
       rel="stylesheet"
     />
     <!-- Styles -->
-    <style is:global>
+    <style lang="scss" is:global>
       *,
       *::after,
       *::before {
@@ -52,6 +52,20 @@ const subpageLink = isSubpage === false ? null : title;
       hr {
         border: none;
         border-top: 2px solid var(--theme-hr);
+      }
+
+      button {
+        padding: 0.5em;
+        border: none;
+        background-color: var(--theme-button);
+        color: inherit;
+
+        &:hover {
+          background-color: var(--theme-button-hover);
+        }
+        &:active {
+          background-color: var(--theme-button-active);
+        }
       }
     </style>
     <style>
@@ -76,6 +90,9 @@ const subpageLink = isSubpage === false ? null : title;
         --theme-text-alt-accent: hsl(var(--color-hue-alt), 55%);
 
         --theme-card: hsl(var(--color-hue-main), 86%);
+        --theme-button: hsl(var(--color-hue-main), 84%);
+        --theme-button-hover: hsl(var(--color-hue-main), 88%);
+        --theme-button-active: hsl(var(--color-hue-main), 86%);
       }
 
       body {

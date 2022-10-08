@@ -59,9 +59,6 @@
 </div>
 
 <style lang="scss">
-  button {
-    padding: 4px;
-  }
   li {
     list-style: none;
   }
