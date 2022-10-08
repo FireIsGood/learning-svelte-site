@@ -10,12 +10,13 @@ export const creationOrder = 1;
   <section>
     <p>there should be a counter below this</p>
     <hr />
-    <br />
-    <Counter client:idle />
+    <div>
+      <Counter client:idle />
+    </div>
   </section>
 </MainLayout>
 
-<style lang="scss">
+<style>
   section > * + * {
     margin-top: 1rem;
   }
