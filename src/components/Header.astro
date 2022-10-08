@@ -87,34 +87,34 @@ const { subpage } = Astro.props;
     height: 4rem;
     background-color: var(--theme-header);
 
-    .slash {
-      margin-inline: 1.5ch .5ch;
-      font-size: 1.25em;
-
-    }
-
-    .subpage {
-      margin-right: auto;
-    }
-
-    .toggle-links {
-      padding: 8px;
-      border: none;
-      background-color: transparent;
-
-      &:hover {
-        background-color: var(--theme-header-button-hover);
-      }
-      &:active {
-        background-color: var(--theme-header-button-active);
-      }
-
-      svg {
-        display: block;
-      }
-    }
   }
 
+  .slash {
+    margin-inline: 1.5ch .5ch;
+    font-size: 1.25em;
+  }
+
+  .subpage {
+    margin-right: auto;
+  }
+
+  .toggle-links {
+    padding: 8px;
+    border: none;
+    background-color: transparent;
+
+    &:hover {
+      background-color: var(--theme-header-button-hover);
+    }
+    &:active {
+      background-color: var(--theme-header-button-active);
+    }
+
+    svg {
+      display: block;
+    }
+  }
+  
   .header-links {
     nav {
       display: flex;
@@ -135,6 +135,19 @@ const { subpage } = Astro.props;
           background-color: var(--theme-header-link-text-bg-hover);
         }
       }
+    }
+  }
+
+  // Mobile Styles
+
+  @media (max-width: 650px) {
+    h1 {
+      font-size: 1rem;
+      max-width: 10ch;
+    }
+    .slash {
+    margin-inline: 0 .5ch;
+
     }
   }
 </style>
