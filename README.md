@@ -1,4 +1,4 @@
-# Learning Svelte Site
+# [Learning Svelte Site](https://fireisgood.github.io/learning-svelte-site/)
 
 Made with [Astro](https://astro.build) so I could learn Svelte
 
