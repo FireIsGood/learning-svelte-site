@@ -67,6 +67,40 @@ const subpageLink = isSubpage === false ? null : title;
           background-color: var(--theme-button-active);
         }
       }
+
+      input[type="text"] {
+        padding: 0.25em;
+        background-color: var(--theme-button-inactive);
+        border: 1px solid var(--theme-button-active);
+      }
+
+      input[type="checkbox"] {
+        --checkbox-size: 1.5rem;
+        position: relative;
+        width: var(--checkbox-size);
+        height: var(--checkbox-size);
+
+        &::before {
+          opacity: 1;
+          content: "";
+          position: absolute;
+          display: inline-block;
+          line-height: var(--checkbox-size);
+          text-align: center;
+          inset: 0;
+          background-color: var(--theme-button-inactive);
+          border: 1px solid var(--theme-button-active);
+        }
+
+        &:checked::before {
+          content: "\2713";
+          background-color: var(--theme-button);
+        }
+      }
+
+      input + label {
+        margin-left: 0.5rem;
+      }
     </style>
     <style>
       :root {
@@ -93,6 +127,7 @@ const subpageLink = isSubpage === false ? null : title;
         --theme-button: hsl(var(--color-hue-main), 84%);
         --theme-button-hover: hsl(var(--color-hue-main), 88%);
         --theme-button-active: hsl(var(--color-hue-main), 86%);
+        --theme-button-inactive: hsl(var(--color-hue-main), 100%);
       }
 
       body {
