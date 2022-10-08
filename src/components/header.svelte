@@ -26,11 +26,9 @@
       </svg>
     </button>
   </div>
-  {#if showLinks}
-    <div>
-      <slot name="header-links" />
-    </div>
-  {/if}
+  <div class="header-links {showLinks ? 'show' : 'hide'}">
+    <slot name="header-links" />
+  </div>
 </header>
 
 <style lang="scss">
@@ -58,5 +56,18 @@
     svg {
       display: block;
     }
+  }
+
+  .header-links {
+    transition: max-height 250ms ease;
+    overflow-y: auto;
+  }
+
+  .show {
+    max-height: 50vh;
+  }
+
+  .hide {
+    max-height: 0px;
   }
 </style>
