@@ -1,5 +1,5 @@
 <script>
-  let showLinks = true;
+  let showLinks = false;
   function toggleLinks() {
     showLinks = !showLinks;
   }
