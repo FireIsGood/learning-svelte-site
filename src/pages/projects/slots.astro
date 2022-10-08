@@ -1,0 +1,23 @@
+---
+import MainLayout from "../../layouts/MainLayout.astro";
+import Slots from "../../components/slots.svelte";
+
+export const title = "Slots";
+export const creationOrder = 7;
+---
+
+<MainLayout title={title}>
+  <section>
+    <p>This is an example of a nested svelte app with props passing variables back up.</p>
+    <hr />
+    <div>
+      <Slots client:idle />
+    </div>
+  </section>
+</MainLayout>
+
+<style>
+  section > * + * {
+    margin-top: 1rem;
+  }
+</style>
