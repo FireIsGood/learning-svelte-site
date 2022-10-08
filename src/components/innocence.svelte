@@ -221,10 +221,8 @@
   .sin-container {
     display: flex;
     flex-flow: column wrap;
-    > .input-item {
-      width: 55ch;
-      margin-inline: auto;
-    }
+    gap: 1rem;
+    margin-inline: auto;
   }
   .calculate-button,
   .reset-button {
