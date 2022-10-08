@@ -223,6 +223,15 @@
     flex-flow: column wrap;
     gap: 1rem;
     margin-inline: auto;
+
+    > .input-item {
+      position: relative;
+      display: flex;
+
+      > label {
+        width: 100%;
+      }
+    }
   }
   .calculate-button,
   .reset-button {
