@@ -10,7 +10,7 @@
     <div>
       <slot name="header-main">Header</slot>
     </div>
-    <button on:click={toggleLinks}>
+    <button on:click={toggleLinks} aria-label="Header toggle link visibility">
       <svg
         xmlns="http://www.w3.org/2000/svg"
         width="40"

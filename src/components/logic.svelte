@@ -45,8 +45,8 @@
     and now... {numPosts ? numPosts : "no"} post{numPosts !== 1 ? "s" : ""}!
   </p>
   <div>
-    <button on:click={removePost}>Remove One</button>
-    <button on:click={addPost}>Add One</button>
+    <button on:click={removePost} aria-label="remove post">Remove One</button>
+    <button on:click={addPost} aria-label="add post">Add One</button>
   </div>
   <ul>
     {#each fakePosts as post}

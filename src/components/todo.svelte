@@ -27,12 +27,17 @@
   <ul class="todo-list">
     {#each todoItems as item}
       <li>
-        <input type="checkbox" bind:checked={item.done} />
+        <input
+          type="checkbox"
+          bind:checked={item.done}
+          aria-label="Todo {item.task} Checkbox"
+        />
         <input
           type="text"
           placeholder="What task?"
           bind:value={item.task}
           disabled={item.done}
+          label="Todo List Item"
         />
       </li>
     {/each}
@@ -73,6 +78,6 @@
     color: red;
   }
   .string {
-    color: lightsalmon;
+    color: chocolate;
   }
 </style>

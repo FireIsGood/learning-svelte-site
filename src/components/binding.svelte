@@ -8,7 +8,12 @@
 
 <div class="container">
   <div class="input-item">
-    <input type="text" name="greet" bind:value={name} />
+    <input
+      type="text"
+      name="greet"
+      bind:value={name}
+      aria-label="Greeting input"
+    />
     <label for="greet">Hi {name ? name : "no one in particular"}!</label>
   </div>
   <div class="input-item">
