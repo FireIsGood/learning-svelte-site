@@ -80,6 +80,11 @@ let optionalClasses = [
         }
       }
 
+      input,
+      button {
+        font-size: inherit;
+      }
+
       input[type="text"] {
         padding: 0.25em;
         background-color: var(--theme-button-inactive);
@@ -140,7 +145,7 @@ let optionalClasses = [
     </style>
     <style lang="scss">
       :root {
-        --font-size-base: clamp(1rem, 0.35vw + 0.9rem, 1.2rem);
+        --font-size-base: clamp(1rem, 0.3vw + 0.9rem, 1.1rem);
 
         --color-hue-main: 290, 40%;
         --color-hue-alt: 130, 40%;
