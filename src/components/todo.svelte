@@ -72,7 +72,6 @@
       />
       Use Local Storage
     </label>
-    <p>{useLocalStorage}</p>
   </div>
   <ul class="todo-list">
     {#each todoItems as item}
@@ -110,6 +109,7 @@
 
   .buttons {
     display: flex;
+    flex-wrap: wrap;
     gap: 0.25rem;
 
     & *:nth-child(2) {
