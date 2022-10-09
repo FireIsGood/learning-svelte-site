@@ -140,6 +140,8 @@ let optionalClasses = [
     </style>
     <style lang="scss">
       :root {
+        --font-size-base: clamp(1rem, 0.35vw + 0.9rem, 1.2rem);
+
         --color-hue-main: 290, 40%;
         --color-hue-alt: 130, 40%;
 
@@ -167,6 +169,10 @@ let optionalClasses = [
         --theme-button-active: hsl(var(--color-hue-main), 80%);
         --theme-button-inactive: hsl(var(--color-hue-main), 100%);
         --theme-button-disabled: hsl(var(--color-hue-main), 92%);
+      }
+
+      html {
+        font-size: var(--font-size-base);
       }
 
       body {
