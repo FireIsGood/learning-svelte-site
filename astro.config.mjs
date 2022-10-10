@@ -1,6 +1,5 @@
 import { defineConfig } from "astro/config";
 import svelte from "@astrojs/svelte";
-
 import image from "@astrojs/image";
 
 // https://astro.build/config
