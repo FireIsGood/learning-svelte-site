@@ -1,6 +1,6 @@
 ---
-import MainLayout from "../../layouts/MainLayout.astro";
-import Innosence from "../../components/innocence.svelte";
+import MainLayout from "@layouts/MainLayout.astro";
+import Innocence from "@omponents/innocence.svelte";
 
 export const title = "Innocence Test Ripoff";
 export const creationOrder = 3;
@@ -14,7 +14,7 @@ export const creationOrder = 3;
     </p>
     <hr />
     <div>
-      <Innosence client:idle />
+      <Innocence client:idle />
     </div>
   </section>
 </MainLayout>
