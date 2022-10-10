@@ -1,6 +1,8 @@
 ---
 import MainLayout from "../../layouts/MainLayout.astro";
-import Slots from "../../components/slots.svelte";
+import SlotsProps from "../../components/slots-props.svelte";
+import SlotsNamed from "../../components/slots-named.svelte";
+import { Image } from "@astrojs/image/components";
 
 export const title = "Slots";
 export const creationOrder = 7;
@@ -8,16 +10,50 @@ export const creationOrder = 7;
 
 <MainLayout title={title}>
   <section>
-    <p>This is an example of a nested svelte app with props passing variables back up.</p>
+    <p>
+      This is an example of a nested svelte app with props passing variables
+      back up.
+    </p>
     <hr />
     <div>
-      <Slots client:idle />
+      <SlotsProps client:idle />
     </div>
+    <br />
+    <p>This is an exmaple of putting Astro components into svelte slots</p>
+    <hr />
+    <SlotsNamed client:idle>
+      <h2 slot="tile-1">This is pure text inserted</h2>
+      <Image
+        slot="tile-2"
+        src="/assets/mylnar.png"
+        alt="how"
+        format={"avif"}
+        width={128}
+        height={128}
+        quality={10}
+      />
+      <p slot="tile-3" class="red">
+        This text is styled before being placed inside
+      </p>
+      <p slot="tile-4">This text is styled before AFTER placed inside</p>
+      <code>
+        This text is added after the entire slot system is finished since it is
+        unnamed
+      </code>
+    </SlotsNamed>
   </section>
 </MainLayout>
 
 <style>
   section > * + * {
     margin-top: 1rem;
+  }
+
+  .block {
+    display: block;
+  }
+
+  .red {
+    color: red;
   }
 </style>
