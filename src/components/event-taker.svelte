@@ -34,7 +34,7 @@
     <slot />
   </div>
   {#if exactMatch}
-    <p>Woah that's me</p>
+    <strong>Woah that's me!</strong>
   {:else if $search && $search !== "?"}
     <p>Search is {$search}</p>
   {:else}
@@ -61,10 +61,10 @@
   }
 
   .matches {
-    background-color: var(--theme-card-hover);
+    background-color: var(--theme-card-alt);
   }
   .exactMatch {
-    outline: 4px solid var(--theme-card-outline);
+    outline: 4px solid var(--theme-card-alt-outline);
   }
 
   .fails {
@@ -73,6 +73,7 @@
 
   .green {
     color: green;
+    text-decoration: underline;
   }
   .red {
     color: red;
