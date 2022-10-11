@@ -1,0 +1,52 @@
+---
+import MainLayout from "@layouts/MainLayout.astro";
+import Input from "@components/input.svelte";
+import EventTaker from "@components/event-taker.svelte";
+import { Image } from "@astrojs/image/components";
+
+const items = [
+  { text: "My name Meteor", key: "meteor", image: "/assets/mylnar.png" },
+  { text: "My name Meteorite", key: "meteorite", image: "/assets/mylnar.png" },
+  { text: "My name Amogus", key: "amogus", image: "/assets/mylnar.png" },
+  { text: "My name Matoimaru", key: "matoimaru", image: "/assets/mylnar.png" },
+];
+
+export const title = "Events";
+export const creationOrder = 8;
+---
+
+<MainLayout title={title}>
+  <section>
+    <p>
+      These are svelte components with slotted Astro components which react to a
+      seperate input svelte component. This is useful if you wanted to make
+      elements react to a variable with slotted Astro components, for instace
+      for a search bar that hid non-matching items.
+    </p>
+    <hr />
+    <Input client:load />
+    <ul class="item-grid">
+      {
+        items.map((item) => {
+          return (
+            <EventTaker client:load callsign={item}>
+              <Image src={item.image} alt="" width={72} height={72} />
+            </EventTaker>
+          );
+        })
+      }
+    </ul>
+  </section>
+</MainLayout>
+
+<style lang="scss">
+  section > * + * {
+    margin-top: 1rem;
+  }
+
+  .item-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+  }
+</style>
