@@ -30,7 +30,7 @@
 <link rel="stylesheet" href="/learning-svelte-site/assets/c2c5101e.982ec116.css" />
 <link rel="stylesheet" href="/learning-svelte-site/assets/fb41c68d.1d6d3151.css" />
 <link rel="stylesheet" href="/learning-svelte-site/assets/106bf7e4.8c1ee626.css" />
-<link rel="stylesheet" href="/learning-svelte-site/assets/759261d3.d7ef816b.css" /></head>
+<link rel="stylesheet" href="/learning-svelte-site/assets/759261d3.7e1fd51e.css" /></head>
   <body class="astro-3JV5HQSM">
     <style>astro-island,astro-slot{display:contents}</style><script>(self.Astro=self.Astro||{}).idle=t=>{const e=async()=>{await(await t())()};"requestIdleCallback"in window?window.requestIdleCallback(e):setTimeout(e,200)},window.dispatchEvent(new Event("astro:idle"));var l;{const c={0:t=>t,1:t=>JSON.parse(t,o),2:t=>new RegExp(t),3:t=>new Date(t),4:t=>new Map(JSON.parse(t,o)),5:t=>new Set(JSON.parse(t,o)),6:t=>BigInt(t),7:t=>new URL(t),8:t=>new Uint8Array(JSON.parse(t)),9:t=>new Uint16Array(JSON.parse(t)),10:t=>new Uint32Array(JSON.parse(t))},o=(t,s)=>{if(t===""||!Array.isArray(s))return s;const[e,n]=s;return e in c?c[e](n):void 0};customElements.get("astro-island")||customElements.define("astro-island",(l=class extends HTMLElement{constructor(){super(...arguments);this.hydrate=()=>{if(!this.hydrator||this.parentElement&&this.parentElement.closest("astro-island[ssr]"))return;const s=this.querySelectorAll("astro-slot"),e={},n=this.querySelectorAll("template[data-astro-template]");for(const r of n){const i=r.closest(this.tagName);!i||!i.isSameNode(this)||(e[r.getAttribute("data-astro-template")||"default"]=r.innerHTML,r.remove())}for(const r of s){const i=r.closest(this.tagName);!i||!i.isSameNode(this)||(e[r.getAttribute("name")||"default"]=r.innerHTML)}const a=this.hasAttribute("props")?JSON.parse(this.getAttribute("props"),o):{};this.hydrator(this)(this.Component,a,e,{client:this.getAttribute("client")}),this.removeAttribute("ssr"),window.removeEventListener("astro:hydrate",this.hydrate),window.dispatchEvent(new CustomEvent("astro:hydrate"))}}connectedCallback(){!this.hasAttribute("await-children")||this.firstChild?this.childrenConnectedCallback():new MutationObserver((s,e)=>{e.disconnect(),this.childrenConnectedCallback()}).observe(this,{childList:!0})}async childrenConnectedCallback(){window.addEventListener("astro:hydrate",this.hydrate);let s=this.getAttribute("before-hydration-url");s&&await import(s),this.start()}start(){const s=JSON.parse(this.getAttribute("opts")),e=this.getAttribute("client");if(Astro[e]===void 0){window.addEventListener(`astro:${e}`,()=>this.start(),{once:!0});return}Astro[e](async()=>{const n=this.getAttribute("renderer-url"),[a,{default:r}]=await Promise.all([import(this.getAttribute("component-url")),n?import(n):()=>()=>{}]),i=this.getAttribute("component-export")||"default";if(!i.includes("."))this.Component=a[i];else{this.Component=a;for(const d of i.split("."))this.Component=this.Component[d]}return this.hydrator=r,this.hydrate},s,this)}attributeChangedCallback(){this.hydrator&&this.hydrate()}},l.observedAttributes=["props"],l))}</script><astro-island uid="k70FP" component-url="/learning-svelte-site/header.7b6f0dd0.js" component-export="default" renderer-url="/learning-svelte-site/client.b27523fa.js" props="{&quot;class&quot;:[0,&quot;astro-ELHP6AKG&quot;]}" ssr="" client="idle" opts="{&quot;name&quot;:&quot;Header&quot;,&quot;value&quot;:true}" await-children=""><header><div class="header-main svelte-11arqzg"><div><astro-slot name="header-main"><div class="header-logo astro-ELHP6AKG">
     <a href="/learning-svelte-site" title="Home" class="astro-ELHP6AKG">
@@ -64,44 +64,44 @@
 
 
     <main class="  astro-3JV5HQSM">
-      <script>(self.Astro=self.Astro||{}).load=a=>{(async()=>await(await a())())()},window.dispatchEvent(new Event("astro:load"));</script><section class="astro-XT7EPNSG">
-    <p class="astro-XT7EPNSG">
+      <script>(self.Astro=self.Astro||{}).load=a=>{(async()=>await(await a())())()},window.dispatchEvent(new Event("astro:load"));</script><section class="astro-LS2P2JMI">
+    <p class="astro-LS2P2JMI">
       These are svelte components with slotted Astro components which react to a
       seperate input svelte component. This is useful if you wanted to make
       elements react to a variable with slotted Astro components, for instace
       for a search bar that hid non-matching items.
     </p>
-    <hr class="astro-XT7EPNSG">
-    <astro-island uid="ZDL95i" component-url="/learning-svelte-site/input.38c89651.js" component-export="default" renderer-url="/learning-svelte-site/client.b27523fa.js" props="{&quot;class&quot;:[0,&quot;astro-XT7EPNSG&quot;]}" ssr="" client="load" opts="{&quot;name&quot;:&quot;Input&quot;,&quot;value&quot;:true}" await-children=""><div class="container svelte-s01opo"><input type="text" placeholder="Type a name...">
+    <hr class="astro-LS2P2JMI">
+    <astro-island uid="1ptFYF" component-url="/learning-svelte-site/input.38c89651.js" component-export="default" renderer-url="/learning-svelte-site/client.b27523fa.js" props="{&quot;class&quot;:[0,&quot;astro-LS2P2JMI&quot;]}" ssr="" client="load" opts="{&quot;name&quot;:&quot;Input&quot;,&quot;value&quot;:true}" await-children=""><div class="container svelte-s01opo"><input type="text" placeholder="Type a name...">
   <div class="check"><label class="svelte-s01opo"><input type="checkbox">
       Hide Incorrect Items
     </label></div>
 </div></astro-island>
-    <ul class="item-grid astro-XT7EPNSG">
-      <astro-island uid="TSmSn" component-url="/learning-svelte-site/event-taker.4f1d121a.js" component-export="default" renderer-url="/learning-svelte-site/client.b27523fa.js" props="{&quot;callsign&quot;:[0,{&quot;text&quot;:[0,&quot;My name Meteor&quot;],&quot;key&quot;:[0,&quot;meteor&quot;],&quot;image&quot;:[0,&quot;/assets/mylnar.png&quot;]}],&quot;class&quot;:[0,&quot;astro-XT7EPNSG&quot;]}" ssr="" client="load" opts="{&quot;name&quot;:&quot;EventTaker&quot;,&quot;value&quot;:true}" await-children=""><div class="container svelte-13rcs51"><p>My name Meteor</p>
-  <div class="slot svelte-13rcs51"><astro-slot><img alt="" class="astro-XT7EPNSG astro-UXNKDZ4E" width="72" height="72" src="/learning-svelte-site/assets/mylnar_1FNWtB.png" loading="lazy" decoding="async">
+    <ul class="item-grid astro-LS2P2JMI">
+      <astro-island uid="1TvUVW" component-url="/learning-svelte-site/event-taker.82d37397.js" component-export="default" renderer-url="/learning-svelte-site/client.b27523fa.js" props="{&quot;callsign&quot;:[0,{&quot;text&quot;:[0,&quot;My name Amogus&quot;],&quot;key&quot;:[0,&quot;amogus&quot;],&quot;image&quot;:[0,&quot;/assets/mylnar.png&quot;]}],&quot;class&quot;:[0,&quot;astro-LS2P2JMI&quot;]}" ssr="" client="load" opts="{&quot;name&quot;:&quot;EventTaker&quot;,&quot;value&quot;:true}" await-children=""><div class="container svelte-1ya54xg"><p>My name Amogus</p>
+  <div class="slot svelte-1ya54xg"><astro-slot><img alt="" class="astro-LS2P2JMI astro-UXNKDZ4E" width="72" height="72" src="/learning-svelte-site/assets/mylnar_1JSoHx.png" loading="lazy" decoding="async">
 
 </astro-slot></div>
   <p>There is no search term</p>
-  <p>Search currently <span class="red svelte-13rcs51">fails</span></p>
-</div></astro-island><astro-island uid="ZwVIMj" component-url="/learning-svelte-site/event-taker.4f1d121a.js" component-export="default" renderer-url="/learning-svelte-site/client.b27523fa.js" props="{&quot;callsign&quot;:[0,{&quot;text&quot;:[0,&quot;My name Meteorite&quot;],&quot;key&quot;:[0,&quot;meteorite&quot;],&quot;image&quot;:[0,&quot;/assets/mylnar.png&quot;]}],&quot;class&quot;:[0,&quot;astro-XT7EPNSG&quot;]}" ssr="" client="load" opts="{&quot;name&quot;:&quot;EventTaker&quot;,&quot;value&quot;:true}" await-children=""><div class="container svelte-13rcs51"><p>My name Meteorite</p>
-  <div class="slot svelte-13rcs51"><astro-slot><img alt="" class="astro-XT7EPNSG astro-UXNKDZ4E" width="72" height="72" src="/learning-svelte-site/assets/mylnar_1FNWtB.png" loading="lazy" decoding="async">
+  <p>Search currently <span class="red svelte-1ya54xg">fails</span></p>
+</div></astro-island><astro-island uid="Zt6tmx" component-url="/learning-svelte-site/event-taker.82d37397.js" component-export="default" renderer-url="/learning-svelte-site/client.b27523fa.js" props="{&quot;callsign&quot;:[0,{&quot;text&quot;:[0,&quot;My name Matoimaru&quot;],&quot;key&quot;:[0,&quot;matoimaru&quot;],&quot;image&quot;:[0,&quot;/assets/mylnar.png&quot;]}],&quot;class&quot;:[0,&quot;astro-LS2P2JMI&quot;]}" ssr="" client="load" opts="{&quot;name&quot;:&quot;EventTaker&quot;,&quot;value&quot;:true}" await-children=""><div class="container svelte-1ya54xg"><p>My name Matoimaru</p>
+  <div class="slot svelte-1ya54xg"><astro-slot><img alt="" class="astro-LS2P2JMI astro-UXNKDZ4E" width="72" height="72" src="/learning-svelte-site/assets/mylnar_1JSoHx.png" loading="lazy" decoding="async">
 
 </astro-slot></div>
   <p>There is no search term</p>
-  <p>Search currently <span class="red svelte-13rcs51">fails</span></p>
-</div></astro-island><astro-island uid="26LbdP" component-url="/learning-svelte-site/event-taker.4f1d121a.js" component-export="default" renderer-url="/learning-svelte-site/client.b27523fa.js" props="{&quot;callsign&quot;:[0,{&quot;text&quot;:[0,&quot;My name Amogus&quot;],&quot;key&quot;:[0,&quot;amogus&quot;],&quot;image&quot;:[0,&quot;/assets/mylnar.png&quot;]}],&quot;class&quot;:[0,&quot;astro-XT7EPNSG&quot;]}" ssr="" client="load" opts="{&quot;name&quot;:&quot;EventTaker&quot;,&quot;value&quot;:true}" await-children=""><div class="container svelte-13rcs51"><p>My name Amogus</p>
-  <div class="slot svelte-13rcs51"><astro-slot><img alt="" class="astro-XT7EPNSG astro-UXNKDZ4E" width="72" height="72" src="/learning-svelte-site/assets/mylnar_1FNWtB.png" loading="lazy" decoding="async">
+  <p>Search currently <span class="red svelte-1ya54xg">fails</span></p>
+</div></astro-island><astro-island uid="C5qVn" component-url="/learning-svelte-site/event-taker.82d37397.js" component-export="default" renderer-url="/learning-svelte-site/client.b27523fa.js" props="{&quot;callsign&quot;:[0,{&quot;text&quot;:[0,&quot;My name May&quot;],&quot;key&quot;:[0,&quot;may&quot;],&quot;image&quot;:[0,&quot;/assets/mylnar.png&quot;]}],&quot;class&quot;:[0,&quot;astro-LS2P2JMI&quot;]}" ssr="" client="load" opts="{&quot;name&quot;:&quot;EventTaker&quot;,&quot;value&quot;:true}" await-children=""><div class="container svelte-1ya54xg"><p>My name May</p>
+  <div class="slot svelte-1ya54xg"><astro-slot><img alt="" class="astro-LS2P2JMI astro-UXNKDZ4E" width="72" height="72" src="/learning-svelte-site/assets/mylnar_1JSoHx.png" loading="lazy" decoding="async">
 
 </astro-slot></div>
   <p>There is no search term</p>
-  <p>Search currently <span class="red svelte-13rcs51">fails</span></p>
-</div></astro-island><astro-island uid="tMJDe" component-url="/learning-svelte-site/event-taker.4f1d121a.js" component-export="default" renderer-url="/learning-svelte-site/client.b27523fa.js" props="{&quot;callsign&quot;:[0,{&quot;text&quot;:[0,&quot;My name Matoimaru&quot;],&quot;key&quot;:[0,&quot;matoimaru&quot;],&quot;image&quot;:[0,&quot;/assets/mylnar.png&quot;]}],&quot;class&quot;:[0,&quot;astro-XT7EPNSG&quot;]}" ssr="" client="load" opts="{&quot;name&quot;:&quot;EventTaker&quot;,&quot;value&quot;:true}" await-children=""><div class="container svelte-13rcs51"><p>My name Matoimaru</p>
-  <div class="slot svelte-13rcs51"><astro-slot><img alt="" class="astro-XT7EPNSG astro-UXNKDZ4E" width="72" height="72" src="/learning-svelte-site/assets/mylnar_1FNWtB.png" loading="lazy" decoding="async">
+  <p>Search currently <span class="red svelte-1ya54xg">fails</span></p>
+</div></astro-island><astro-island uid="Z1TFTaw" component-url="/learning-svelte-site/event-taker.82d37397.js" component-export="default" renderer-url="/learning-svelte-site/client.b27523fa.js" props="{&quot;callsign&quot;:[0,{&quot;text&quot;:[0,&quot;My name Mayer&quot;],&quot;key&quot;:[0,&quot;mayer&quot;],&quot;image&quot;:[0,&quot;/assets/mylnar.png&quot;]}],&quot;class&quot;:[0,&quot;astro-LS2P2JMI&quot;]}" ssr="" client="load" opts="{&quot;name&quot;:&quot;EventTaker&quot;,&quot;value&quot;:true}" await-children=""><div class="container svelte-1ya54xg"><p>My name Mayer</p>
+  <div class="slot svelte-1ya54xg"><astro-slot><img alt="" class="astro-LS2P2JMI astro-UXNKDZ4E" width="72" height="72" src="/learning-svelte-site/assets/mylnar_1JSoHx.png" loading="lazy" decoding="async">
 
 </astro-slot></div>
   <p>There is no search term</p>
-  <p>Search currently <span class="red svelte-13rcs51">fails</span></p>
+  <p>Search currently <span class="red svelte-1ya54xg">fails</span></p>
 </div></astro-island>
     </ul>
   </section>
