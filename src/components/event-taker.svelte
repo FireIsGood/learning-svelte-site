@@ -66,6 +66,7 @@
   }
   .exactMatch {
     outline: 4px solid var(--theme-card-alt-outline);
+    order: -1;
   }
 
   .fails {

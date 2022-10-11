@@ -4,12 +4,14 @@ import Input from "@components/input.svelte";
 import EventTaker from "@components/event-taker.svelte";
 import { Image } from "@astrojs/image/components";
 
-const items = [
-  { text: "My name Meteor", key: "meteor", image: "/assets/mylnar.png" },
-  { text: "My name Meteorite", key: "meteorite", image: "/assets/mylnar.png" },
+let items = [
+  { text: "My name May", key: "may", image: "/assets/mylnar.png" },
+  { text: "My name Mayer", key: "mayer", image: "/assets/mylnar.png" },
   { text: "My name Amogus", key: "amogus", image: "/assets/mylnar.png" },
   { text: "My name Matoimaru", key: "matoimaru", image: "/assets/mylnar.png" },
-];
+].sort((a, b) => a.key.localeCompare(b.key));
+
+// items = items.sort((a, b) => )
 
 export const title = "Events";
 export const creationOrder = 8;
