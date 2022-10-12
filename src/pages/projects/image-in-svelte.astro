@@ -8,25 +8,25 @@ let items: Array<Item> = [
   {
     text: "My name Mayer",
     key: "mayer",
-    image: "",
+    image: {},
     url: "/assets/mylnar.png",
   },
   {
     text: "My name May",
     key: "may",
-    image: "",
+    image: {},
     url: "/assets/mylnar.png",
   },
   {
     text: "My name Amogus",
     key: "amogus",
-    image: "",
+    image: {},
     url: "/assets/mylnar.png",
   },
   {
     text: "My name Matoimaru",
     key: "matoimaru",
-    image: "",
+    image: {},
     url: "/assets/mylnar.png",
   },
 ];
@@ -38,7 +38,7 @@ for (let item of items) {
     height: 72,
   }).then((res) => {
     if (res.src === null || res.src === undefined) return;
-    item.image = res.src;
+    item.image = res;
   });
 }
 
