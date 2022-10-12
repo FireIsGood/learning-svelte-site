@@ -1,0 +1,73 @@
+---
+import MainLayout from "@layouts/MainLayout.astro";
+import Search from "@components/search.svelte";
+import { getImage } from "@astrojs/image";
+import type { Item } from "@scripts/types";
+
+let items: Array<Item> = [
+  {
+    text: "My name Mayer",
+    key: "mayer",
+    image: "",
+    url: "/assets/mylnar.png",
+  },
+  {
+    text: "My name May",
+    key: "may",
+    image: "",
+    url: "/assets/mylnar.png",
+  },
+  {
+    text: "My name Amogus",
+    key: "amogus",
+    image: "",
+    url: "/assets/mylnar.png",
+  },
+  {
+    text: "My name Matoimaru",
+    key: "matoimaru",
+    image: "",
+    url: "/assets/mylnar.png",
+  },
+];
+
+items.map((item) => {
+  getImage({
+    src: item.url,
+    width: 72,
+    height: 72,
+  }).then((res) => {
+    if (res.src === null || res.src === undefined) return;
+    item.image = res.src;
+    console.log(res.src);
+  });
+});
+
+export const title = "Image in Svelte";
+export const creationOrder = 8;
+---
+
+<MainLayout title={title}>
+  <section>
+    <p>
+      This is just like the Events page but refactored to be faster and stop
+      elements from jumping around by importing images as their properties
+      instead of slotting them. This allows a better sorting system than each
+      element checking a store.
+    </p>
+    <hr />
+    <Search client:load {items} />
+  </section>
+</MainLayout>
+
+<style lang="scss">
+  section > * + * {
+    margin-top: 1rem;
+  }
+
+  .item-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+  }
+</style>
