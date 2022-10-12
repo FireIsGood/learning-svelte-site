@@ -39,7 +39,6 @@ items.map((item) => {
   }).then((res) => {
     if (res.src === null || res.src === undefined) return;
     item.image = res.src;
-    console.log(res.src);
   });
 });
 
