@@ -1,17 +1,24 @@
 <script lang="ts">
   import type { Item } from "@scripts/types";
+  import { removeSpace } from "@scripts/slugGen";
 
   export let items: Array<Item> = [];
   let filteredItems: Array<Item> = items;
 
+  let input: string = "";
   let selected: string = "";
   let hideIncorrect: boolean = false;
 
   $: {
+    selected = removeSpace(input);
     const s = selected;
     if (s.length > 0) {
       filteredItems = items
-        .filter((item) => item.key.slice(0, s.length) === s.slice(0, s.length))
+        .filter(
+          (item) =>
+            item.key.slice(0, s.length) === s.slice(0, s.length) ||
+            !hideIncorrect
+        )
         .sort((a, b) => (b.key === s ? 1 : -1));
     } else {
       filteredItems = items;
@@ -24,7 +31,7 @@
 
 <div>
   <div class="input-container">
-    <input type="text" bind:value={selected} placeholder="Type a name..." />
+    <input type="text" bind:value={input} placeholder="Type a name..." />
     <label>
       <input type="checkbox" bind:checked={hideIncorrect} />
       Hide Incorrect Items
