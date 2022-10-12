@@ -31,8 +31,8 @@ let items: Array<Item> = [
   },
 ];
 
-items.map((item) => {
-  getImage({
+for (let item of items) {
+  await getImage({
     src: item.url,
     width: 72,
     height: 72,
@@ -40,7 +40,7 @@ items.map((item) => {
     if (res.src === null || res.src === undefined) return;
     item.image = res.src;
   });
-});
+}
 
 export const title = "Image in Svelte";
 export const creationOrder = 8;

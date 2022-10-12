@@ -38,7 +38,7 @@
     {#each filteredItems as item}
       <li>
         <p>{item.text}</p>
-        <img src={item.image} alt="" />
+        <img src={item.image} alt="this should be here" />
         {#if item.exactMatch}
           <p class="green">That's me!</p>
         {:else}
@@ -50,7 +50,6 @@
 </div>
 
 <style lang="scss">
-
   // General Styles
 
   li {
