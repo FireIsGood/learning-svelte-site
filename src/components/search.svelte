@@ -1,6 +1,5 @@
 <script lang="ts">
   import type { Item } from "@scripts/types";
-  import { E } from "docs/chunks/index.6ec7a832";
 
   export let items: Array<Item> = [];
   let filteredItems: Array<Item> = items;
@@ -23,7 +22,7 @@
   }
 </script>
 
-<div class="">
+<div>
   <div class="input-container">
     <input type="text" bind:value={selected} placeholder="Type a name..." />
     <label>
@@ -51,6 +50,7 @@
 </div>
 
 <style lang="scss">
+
   // General Styles
 
   li {
