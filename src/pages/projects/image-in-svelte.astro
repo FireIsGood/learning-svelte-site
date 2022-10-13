@@ -4,7 +4,7 @@ import Search from "@components/search.svelte";
 import { getImage } from "@astrojs/image";
 import type { Item } from "@scripts/types";
 
-let items: Array<Item> = [
+let items: Item[] = [
   {
     text: "My name Mayer",
     key: "mayer",
@@ -55,7 +55,7 @@ export const creationOrder = 8;
       element checking a store.
     </p>
     <hr />
-    <Search client:load {items} />
+    <Search client:only="svelte" {items} />
   </section>
 </MainLayout>
 
