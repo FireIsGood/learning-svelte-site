@@ -4,7 +4,7 @@ import FancyMenu from "@components/fancy-menu.svelte";
 import { getPicture } from "@astrojs/image";
 
 const bgPicture = await getPicture({
-  src: "../../assets/bg-image.jpg",
+  src: "/assets/bg-image.jpg",
   widths: [1920, 800],
   formats: ["avif", "webp", "png"],
   aspectRatio: "3:2",

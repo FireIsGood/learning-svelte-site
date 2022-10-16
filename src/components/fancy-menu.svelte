@@ -2,7 +2,6 @@
   import type { GetPictureResult } from "@astrojs/image/dist/lib/get-picture";
   import Picture from "./picture.svelte";
   export let bgPicture: GetPictureResult;
-  console.log(bgPicture);
 
   let focusIndex = 0;
 
@@ -31,6 +30,7 @@
     place-items: center;
     min-height: 100vh;
     background-color: #e8eaf6;
+    overflow: hidden;
   }
 
   a {
@@ -84,16 +84,16 @@
     }
 
     &[data-active-index="0"] ~ .image-bg {
-      background-position-y: 56%;
+      translate: 0 -6%;
     }
     &[data-active-index="1"] ~ .image-bg {
-      background-position-y: 52%;
+      translate: 0 -2%;
     }
     &[data-active-index="2"] ~ .image-bg {
-      background-position-y: 48%;
+      translate: 0 2%;
     }
     &[data-active-index="3"] ~ .image-bg {
-      background-position-y: 44%;
+      translate: 0 6%;
     }
   }
 
@@ -116,11 +116,13 @@
     opacity: 0.5;
     z-index: 0;
     position: absolute;
-    height: 100%;
-    width: 100%;
-    background-size: calc(var(--zoom) * 130%);
-    background-position-y: 50%;
-    background-position-x: 50%;
+    height: 130%;
+    scale: calc(var(--zoom) * 120%);
+    translate: 0 50%;
     transition: 600ms ease;
+
+    picture {
+      object-fit: cover;
+    }
   }
 </style>
