@@ -1,8 +1,13 @@
 <script lang="ts">
   let left: Element;
 
-  function handleMove(e: Event) {
+  function handleMouse(e: Event) {
     const percent = e.clientX / window.innerWidth;
+    left.style = `--percent: ${percent * 100}%`;
+  }
+  function handleTouch(e: Event) {
+    const percent = Math.min(e.touches[0].clientX / window.innerWidth, 1);
+    console.log();
     left.style = `--percent: ${percent * 100}%`;
   }
 </script>
@@ -19,7 +24,7 @@
     </h1>
   </div>
 </section>
-<svelte:window on:mousemove={handleMove} on:touchmove={handleMove} />
+<svelte:window on:mousemove={handleMouse} on:touchmove={handleTouch} />
 
 <style lang="scss">
   @import url("https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Josefin+Sans&display=swap");
