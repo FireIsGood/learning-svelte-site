@@ -7,7 +7,6 @@
   }
   function handleTouch(e: Event) {
     const percent = Math.min(e.touches[0].clientX / window.innerWidth, 1);
-    console.log();
     left.style = `--percent: ${percent * 100}%`;
   }
 </script>
