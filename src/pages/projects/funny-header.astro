@@ -1,0 +1,11 @@
+---
+import MainLayout from "@layouts/MainLayout.astro";
+import FunnyHeader from "@components/funny-header.svelte";
+
+export const title = "Funny Header";
+export const creationOrder = 9;
+---
+
+<MainLayout title={title} noMaxWidth={true} noPad={true}>
+  <FunnyHeader client:idle />
+</MainLayout>

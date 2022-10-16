@@ -37,7 +37,6 @@
     align-items: center;
     justify-content: space-between;
     padding-inline: 1rem;
-    height: 4rem;
     background-color: var(--theme-header);
   }
 
