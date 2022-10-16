@@ -10,6 +10,36 @@
 
   let select = 0;
   const switchQuotes = setInterval(changeQuote, 10000);
+
+  interface Card {
+    title: String;
+    body: String;
+    hue: Number;
+  }
+
+  const cards: Card[] = [
+    {
+      title: "Amogus",
+      body: "Sussy Baka",
+      hue: 80,
+    },
+    {
+      title: "How are you today?",
+      body: "Have you been drinking water? Many symptoms of fatigue can be traced back to dehydration. Stay healthy!",
+      hue: 120,
+    },
+    {
+      title: "short boye",
+      body: "so short and concise!",
+      hue: 240,
+    },
+    {
+      title: "Secret Message woooo",
+      body: "I am the body text Lorem ipsum dolor sit amet consectetur adipisicing elit. Omnis dignissimos laudantium magnam dolorem ut laboriosam excepturi facilis saepe cum.",
+      hue: 200,
+    },
+  ];
+
   function changeQuote() {
     select = (select + 1) % quotes.length;
   }
@@ -41,7 +71,7 @@
   <div class="card-wrapper">
     <div class="card" style="--hue: 320">
       <h2>Thoughts</h2>
-      <p in:typewriter={{ speed: 15 }}>
+      <p>
         I enjoy eating pancakes, but they are sometimes ovecooked. This is an
         issue and I dislike it.
       </p>
@@ -54,29 +84,12 @@
         </p>
       {/key}
     </div>
-    <div class="card" style="--hue: 40">
-      <h2>Amougs</h2>
-      <p>Sussy</p>
-    </div>
-    <div class="card" style="--hue: 120">
-      <h2>How are you today?</h2>
-      <p>
-        Have you been drinking water? Many symptoms of fatigue can be traced
-        back to dehydration. Stay healthy!
-      </p>
-    </div>
-    <div class="card" style="--hue: 200">
-      <h2>Secret Message woooo</h2>
-      <p>
-        I am the body text Lorem ipsum dolor sit amet consectetur adipisicing
-        elit. Omnis dignissimos laudantium magnam dolorem ut repellendus
-        laboriosam excepturi facilis saepe cum.
-      </p>
-    </div>
-    <div class="card" style="--hue: 200">
-      <h2>short boye</h2>
-      <p>so short and concise</p>
-    </div>
+    {#each cards as card}
+      <div class="card" style={`--hue: ${card.hue}`}>
+        <h2>{card.title}</h2>
+        <p>{card.body}</p>
+      </div>
+    {/each}
   </div>
 </section>
 
