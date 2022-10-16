@@ -1,0 +1,41 @@
+---
+import MainLayout from "@layouts/MainLayout.astro";
+import FancyMenu from "@components/fancy-menu.svelte";
+import { getPicture } from "@astrojs/image";
+
+const bgPicture = await getPicture({
+  src: "../../assets/bg-image.jpg",
+  widths: [1920, 800],
+  formats: ["avif", "webp", "png"],
+  aspectRatio: "3:2",
+});
+
+export const title = "Fancy Menu";
+export const creationOrder = 11;
+---
+
+<MainLayout title={title} noPad={true} noMaxWidth={true}>
+  <section>
+    <p>
+      Funny menu, ideas taken from <a
+        href="https://www.youtube.com/watch?v=NUeCNvYY_x4"
+        title="Youtube: The Easiest Website Menu That Will Wow Any User"
+        >this video</a
+      >
+    </p>
+    <hr />
+  </section>
+  <FancyMenu client:idle bgPicture={bgPicture} />
+</MainLayout>
+
+<style lang="scss">
+  section {
+    padding: 1rem;
+    max-width: var(--main-width);
+    margin-inline: auto;
+
+    > * + * {
+      margin-top: 1rem;
+    }
+  }
+</style>
