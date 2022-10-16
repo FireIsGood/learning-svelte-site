@@ -37,7 +37,7 @@
 
   .left {
     z-index: 2;
-    width: var(--percent);
+    width: var(--percent, 50%);
     background-color: #fbe9e7;
     color: #d84315;
   }
