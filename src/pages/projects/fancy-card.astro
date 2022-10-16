@@ -1,0 +1,31 @@
+---
+import MainLayout from "@layouts/MainLayout.astro";
+import FancyCard from "@components/fancy-card.svelte";
+
+export const title = "Fancy Card";
+export const creationOrder = 10;
+---
+
+<MainLayout title={title}>
+  <FancyCard client:idle />
+  <section>
+    <hr />
+    <p>
+      Funny card, ideas taken from <a
+        href="https://www.youtube.com/watch?v=joDhIH6Xumw"
+        title="Youtube: Twitch has created the Holy Grail of CSS hover effects"
+        >this video</a
+      >
+    </p>
+  </section>
+
+  <style lang="scss">
+    section {
+      margin-top: 1rem;
+
+      > * + * {
+        margin-top: 1rem;
+      }
+    }
+  </style>
+</MainLayout>
