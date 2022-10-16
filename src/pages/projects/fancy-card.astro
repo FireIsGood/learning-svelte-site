@@ -6,7 +6,7 @@ export const title = "Fancy Card";
 export const creationOrder = 10;
 ---
 
-<MainLayout title={title}>
+<MainLayout title={title} noPad={true} noMaxWidth={true}>
   <FancyCard client:idle />
   <section>
     <hr />
@@ -21,7 +21,10 @@ export const creationOrder = 10;
 
   <style lang="scss">
     section {
-      margin-top: 1rem;
+      padding: 1rem;
+      max-width: var(--main-width);
+      margin-inline: auto;
+      min-height: 10rem;
 
       > * + * {
         margin-top: 1rem;
