@@ -179,6 +179,8 @@ let optionalClasses = [
         --theme-button-disabled: hsl(var(--color-hue-main), 92%);
 
         --header-height: 4rem;
+
+        --main-width: 75ch;
       }
 
       html {
@@ -190,7 +192,7 @@ let optionalClasses = [
       }
 
       main {
-        max-width: 75ch;
+        max-width: var(--main-width);
         margin-inline: auto;
         padding: 1rem;
 

@@ -8,4 +8,26 @@ export const creationOrder = 9;
 
 <MainLayout title={title} noMaxWidth={true} noPad={true}>
   <FunnyHeader client:idle />
+  <section>
+    <hr />
+    <p>
+      This is a page with an interactive header. I took the idea from <a
+        href="https://www.youtube.com/watch?v=joDhIH6Xumw">a video</a
+      > about css stuff and decided to make it so I would remember better.
+    </p>
+    <p>That's also where the next ones come from.</p>
+  </section>
 </MainLayout>
+
+<style lang="scss">
+  section {
+    padding: 1rem;
+    max-width: var(--main-width);
+    margin-inline: auto;
+
+    > * + * {
+      margin-top: 1rem;
+    }
+    min-height: 15rem;
+  }
+</style>

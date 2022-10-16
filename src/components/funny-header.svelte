@@ -28,8 +28,13 @@
 <style lang="scss">
   @import url("https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Josefin+Sans&display=swap");
 
-  .side {
+  section {
+    position: relative;
     min-height: calc(100vh - var(--header-height));
+  }
+
+  .side {
+    height: 100%;
     width: 100%;
     position: absolute;
     display: grid;
