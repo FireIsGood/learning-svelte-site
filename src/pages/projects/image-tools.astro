@@ -81,80 +81,81 @@ export const creationOrder = 12;
 <MainLayout title={title}>
   <section>
     <p>Trying to use the Astro ImageTools thing</p>
-    <hr />
-    <p>A Local Image served via the <code>Picture</code> component</p>
-    <div>
-      <Picture
-        src="/src/images/amogte.png"
-        alt="A local image"
-        format={["avif", "webp"]}
-        placeholder="tracedSVG"
-        formatOptions={{
-          tracedSVG: {
-            function: "posterize",
-            options: {
-              blackOnWhite: true,
+    <hr /><div class="content">
+      <p>A Local Image served via the <code>Picture</code> component</p>
+      <div class="picture">
+        <Picture
+          src="/src/images/amogte.png"
+          alt="A local image"
+          format={["avif", "webp"]}
+          placeholder="tracedSVG"
+          formatOptions={{
+            tracedSVG: {
+              function: "posterize",
+              options: {
+                blackOnWhite: true,
+              },
             },
-          },
-        }}
-      />
-    </div>
-    <p>
-      Another, larger Local Image served via the <code>Picture</code> component
-    </p>
-    <div>
-      <Picture
-        src="/src/images/star-girl.jpg"
-        alt="A local image"
-        format={["avif", "webp"]}
-        placeholder="tracedSVG"
-        formatOptions={{
-          tracedSVG: {
-            function: "posterize",
-            options: {
-              blackOnWhite: false,
-              background: "0c192a",
-              fill: "mean",
-            },
-          },
-        }}
-        height={300}
-      />
-    </div>
-    <p>A Remote Image served via the <code>Picture</code> component</p>
-    <div>
-      <Picture
-        src="https://picsum.photos/1024/768"
-        alt="A landscape image"
-        format={["avif", "webp"]}
-        fallbackFormat="png"
-        placeholder="tracedSVG"
-        includeSourceFormat={false}
-        formatOptions={{
-          tracedSVG: {
-            function: "posterize",
-            options: {
-              blackOnWhite: false,
-            },
-          },
-        }}
-        height={300}
-      />
-    </div>
-    <p>A grid of operator pictures</p>
-    <div class="grid">
-      <div class="grid-item">
-        <Fragment set:html={gridItem.picture} />
-        <Fragment set:html={gridItem.style} />
+          }}
+        />
       </div>
-      {
-        Object.entries(operatorList).map(([techname, operator]) => (
-          <div class="grid-item">
-            <Fragment set:html={operator?.image.picture} />
-            <Fragment set:html={operator?.image.style} />
-          </div>
-        ))
-      }
+      <p>
+        Another, larger Local Image served via the <code>Picture</code> component
+      </p>
+      <div class="picture">
+        <Picture
+          src="/src/images/star-girl.jpg"
+          alt="A local image"
+          format={["avif", "webp"]}
+          placeholder="tracedSVG"
+          formatOptions={{
+            tracedSVG: {
+              function: "posterize",
+              options: {
+                blackOnWhite: false,
+                background: "0c192a",
+                fill: "mean",
+              },
+            },
+          }}
+          height={300}
+        />
+      </div>
+      <p>A Remote Image served via the <code>Picture</code> component</p>
+      <div class="picture">
+        <Picture
+          src="https://picsum.photos/1024/768"
+          alt="A landscape image"
+          format={["avif", "webp"]}
+          fallbackFormat="png"
+          placeholder="tracedSVG"
+          includeSourceFormat={false}
+          formatOptions={{
+            tracedSVG: {
+              function: "posterize",
+              options: {
+                blackOnWhite: false,
+              },
+            },
+          }}
+          height={300}
+        />
+      </div>
+      <p>A grid of operator pictures</p>
+      <div class="grid">
+        <div class="grid-item">
+          <Fragment set:html={gridItem.picture} />
+          <Fragment set:html={gridItem.style} />
+        </div>
+        {
+          Object.entries(operatorList).map(([techname, operator]) => (
+            <div class="grid-item">
+              <Fragment set:html={operator?.image.picture} />
+              <Fragment set:html={operator?.image.style} />
+            </div>
+          ))
+        }
+      </div>
     </div>
   </section>
 </MainLayout>
@@ -162,6 +163,9 @@ export const creationOrder = 12;
 <style lang="scss">
   section {
     > * + * {
+      margin-top: 1rem;
+    }
+    > .content > * + * {
       margin-top: 1rem;
     }
   }
@@ -174,6 +178,15 @@ export const creationOrder = 12;
   }
 
   // Main styles
+
+  .content {
+    text-align: center;
+  }
+
+  .picture {
+    display: flex;
+    justify-content: center;
+  }
 
   .grid {
     padding: 1rem;
