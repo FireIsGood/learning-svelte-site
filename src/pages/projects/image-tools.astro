@@ -17,6 +17,35 @@ export const creationOrder = 12;
         alt="A local image"
         format={["avif", "webp"]}
         placeholder="tracedSVG"
+        formatOptions={{
+          tracedSVG: {
+            function: "posterize",
+            options: {
+              blackOnWhite: true,
+            },
+          },
+        }}
+      />
+    </div>
+    <p>
+      Another, larger Local Image served via the <code>Picture</code> component
+    </p>
+    <div>
+      <Picture
+        src="/src/images/star-girl.jpg"
+        alt="A local image"
+        format={["avif", "webp"]}
+        placeholder="tracedSVG"
+        formatOptions={{
+          tracedSVG: {
+            function: "posterize",
+            options: {
+              blackOnWhite: false,
+              background: "0c192a",
+              fill: "mean",
+            },
+          },
+        }}
       />
     </div>
     <p>A Remote Image served via the <code>Picture</code> component</p>
@@ -32,13 +61,6 @@ export const creationOrder = 12;
           tracedSVG: {
             function: "posterize",
             options: {
-              background: "#fff",
-              color: "#000",
-              turnPolicy: "black",
-              turdSize: 1,
-              alphaMax: 1,
-              optCurve: true,
-              threshold: 100,
               blackOnWhite: false,
             },
           },
