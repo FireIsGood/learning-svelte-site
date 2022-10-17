@@ -1,0 +1,64 @@
+---
+import MainLayout from "@layouts/MainLayout.astro";
+import { Picture } from "astro-imagetools/components";
+
+export const title = "Image Tools";
+export const creationOrder = 12;
+---
+
+<MainLayout title={title}>
+  <section>
+    <p>Trying to use the Astro ImageTools thing</p>
+    <hr />
+    <p>A Local Image served via the <code>Picture</code> component</p>
+    <div>
+      <Picture
+        src="/src/images/amogte.png"
+        alt="A local image"
+        format={["avif", "webp"]}
+        placeholder="tracedSVG"
+      />
+    </div>
+    <p>A Remote Image served via the <code>Picture</code> component</p>
+    <div>
+      <Picture
+        src="https://picsum.photos/1024/768"
+        alt="A landscape image"
+        format={["avif", "webp"]}
+        fallbackFormat="png"
+        placeholder="tracedSVG"
+        includeSourceFormat={false}
+        formatOptions={{
+          tracedSVG: {
+            function: "posterize",
+            options: {
+              background: "#fff",
+              color: "#000",
+              turnPolicy: "black",
+              turdSize: 1,
+              alphaMax: 1,
+              optCurve: true,
+              threshold: 100,
+              blackOnWhite: false,
+            },
+          },
+        }}
+      />
+    </div>
+  </section>
+</MainLayout>
+
+<style lang="scss">
+  section {
+    > * + * {
+      margin-top: 1rem;
+    }
+  }
+
+  code {
+    border-radius: 4px;
+    padding: 1px 4px;
+    color: white;
+    background-color: #424242;
+  }
+</style>
