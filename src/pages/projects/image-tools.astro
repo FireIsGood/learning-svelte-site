@@ -1,6 +1,78 @@
 ---
 import MainLayout from "@layouts/MainLayout.astro";
 import { Picture } from "astro-imagetools/components";
+import { renderPicture } from "astro-imagetools/api";
+
+let operatorList;
+
+await fetch(
+  "https://raw.githubusercontent.com/Kengxxiao/ArknightsGameData/master/en_US/gamedata/excel/character_table.json"
+)
+  .then((response) => response.json())
+  .then((data) => {
+    operatorList = Object.entries(data)
+      .filter(([technicalName, data]) => {
+        const operator = data as any;
+        return (
+          operator.profession !== "TOKEN" &&
+          operator.profession !== "TRAP" &&
+          technicalName !== "char_512_aprot"
+        );
+      })
+      .map(([technicalName, data]) => {
+        const operator = data as any;
+        return {
+          name: operator.name,
+          image: `https://raw.githubusercontent.com/Aceship/Arknight-Images/main/avatars/${operator.phases[0].characterPrefabKey}.png`,
+          rarity: operator.rarity,
+        };
+      })
+      .sort((a, b) => a.name.localeCompare(b.name))
+      .sort((a, b) => b.rarity - a.rarity)
+      .slice(0, 15);
+  });
+
+const gridItem = await renderPicture({
+  src: "https://picsum.photos/1024/768",
+  alt: "A random image",
+  format: ["avif", "webp"],
+  fallbackFormat: "png",
+  placeholder: "tracedSVG",
+  includeSourceFormat: false,
+  formatOptions: {
+    tracedSVG: {
+      function: "posterize",
+      options: {
+        blackOnWhite: false,
+      },
+    },
+  },
+  height: 300,
+});
+
+for (let operator of operatorList) {
+  operator.image = await renderPicture({
+    src: operator.image,
+    alt: "A random image",
+    format: ["avif", "webp"],
+    fallbackFormat: "png",
+    placeholder: "tracedSVG",
+    includeSourceFormat: false,
+    formatOptions: {
+      tracedSVG: {
+        function: "trace",
+        options: {
+          blackOnWhite: true,
+          background: "transparent",
+          color: "000",
+          threshold: 254,
+          fill: "spread",
+        },
+      },
+    },
+    height: 300,
+  });
+}
 
 export const title = "Image Tools";
 export const creationOrder = 12;
@@ -46,6 +118,7 @@ export const creationOrder = 12;
             },
           },
         }}
+        height={300}
       />
     </div>
     <p>A Remote Image served via the <code>Picture</code> component</p>
@@ -65,7 +138,23 @@ export const creationOrder = 12;
             },
           },
         }}
+        height={300}
       />
+    </div>
+    <p>A grid of operator pictures</p>
+    <div class="grid">
+      <div class="grid-item">
+        <Fragment set:html={gridItem.picture} />
+        <Fragment set:html={gridItem.style} />
+      </div>
+      {
+        Object.entries(operatorList).map(([techname, operator]) => (
+          <div class="grid-item">
+            <Fragment set:html={operator?.image.picture} />
+            <Fragment set:html={operator?.image.style} />
+          </div>
+        ))
+      }
     </div>
   </section>
 </MainLayout>
@@ -82,5 +171,20 @@ export const creationOrder = 12;
     padding: 1px 4px;
     color: white;
     background-color: #424242;
+  }
+
+  // Main styles
+
+  .grid {
+    padding: 1rem;
+    gap: 0.5rem;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, 72px);
+    background-color: #4e342e;
+
+    > .grid-item {
+      width: 72px;
+      height: 72px;
+    }
   }
 </style>
