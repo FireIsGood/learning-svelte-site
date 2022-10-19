@@ -1,6 +1,6 @@
 <script lang="ts">
   import { onMount } from "svelte";
-  let body: Element;
+  let root;
   let dark: boolean = isDarkMode();
 
   onMount(() => {
@@ -15,14 +15,15 @@
 
   function toggleDark(mode = false) {
     if (import.meta.env.SSR) return;
+    root = document.documentElement;
 
     if (mode === false) {
-      document.body.classList.remove("light");
-      document.body.classList.add("dark");
+      root.classList.remove("light");
+      root.classList.add("dark");
       console.log("should be dark now");
     } else {
-      document.body.classList.remove("dark");
-      document.body.classList.add("light");
+      root.classList.remove("dark");
+      root.classList.add("light");
       console.log("should be light now");
     }
     localStorage.setItem("darkMode", dark.toString());
@@ -110,7 +111,6 @@
     </svg>
   </div>
 </button>
-<fragment:body bind:this={body} />
 
 <style lang="scss">
   button {
@@ -120,6 +120,13 @@
     padding: 0.5rem;
     border-radius: 100vh;
     outline: 0;
+
+    &:hover {
+      background-color: var(--theme-header-button-hover);
+    }
+    &:active {
+      background-color: var(--theme-header-button-active);
+    }
   }
 
   // Main Styles
@@ -144,7 +151,7 @@
   }
   :global(.light) {
     .icon {
-      color: #fb8c00;
+      color: #e65100;
     }
     .sun {
       display: block;

@@ -18,7 +18,7 @@ pages.sort((a, b) => {
 const { subpage } = Astro.props;
 ---
 
-<Header client:idle>
+<Header client:load>
   <div slot="header-main" class="header-logo">
     <a href="/learning-svelte-site" title="Home">
       <h1>Learning Svelte Site</h1>
@@ -53,13 +53,17 @@ const { subpage } = Astro.props;
 
 <style lang="scss">
   // General Styles
+
+  * {
+    color: var(--theme-header-text);
+  }
   a {
     text-decoration: none;
   }
 
   h1 {
     text-align: center;
-    color: var(--theme-text-main-accent);
+    color: var(--theme-header-accent);
   }
 
   // Main styles
@@ -89,13 +93,13 @@ const { subpage } = Astro.props;
 
     .subpage-link {
       color: var(--theme-header-link-text, inherit);
-      background-color: var(--theme-header-link-text-bg);
+      background-color: var(--theme-header-link-box);
       font-weight: 800;
       font-size: 1.125rem;
       padding: 0.5rem 1rem;
 
       &:hover {
-        background-color: var(--theme-header-link-text-bg-hover);
+        background-color: var(--theme-header-link-box-hover);
       }
     }
   }

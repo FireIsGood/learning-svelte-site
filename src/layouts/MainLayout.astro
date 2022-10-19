@@ -46,6 +46,15 @@ let optionalClasses = [
       href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap"
       rel="stylesheet"
     />
+    <!-- Avoid FOUC -->
+    <script is:inline>
+      // Set the right color mode based on the user's preferred color scheme.
+      const root = document.documentElement;
+      const darkMode = localStorage.getItem("darkMode");
+      if (null !== darkMode) {
+        root.classList.add(darkMode === "true" ? "dark" : "light");
+      }
+    </script>
     <!-- Styles -->
     <style lang="scss" is:global>
       // Remove padding, margin, and then set box-sizing
@@ -73,6 +82,10 @@ let optionalClasses = [
       html {
         font-family: "Open Sans", system-ui, sans-serif;
         color: var(--theme-text-main);
+      }
+
+      a {
+        color: var(--theme-text-link);
       }
 
       hr {
@@ -144,7 +157,7 @@ let optionalClasses = [
 
         &:checked::before {
           content: "\2713";
-          color: var(--theme-button-text);
+          color: greenyellow;
           background-color: var(--theme-button);
         }
       }
@@ -164,39 +177,76 @@ let optionalClasses = [
       :root {
         --font-size-base: clamp(1rem, 0.3vw + 0.9rem, 1.1rem);
 
-        --color-hue-main: 290, 40%;
-        --color-hue-alt: 130, 40%;
-
-        --theme-bg: hsl(var(--color-hue-main), 96%);
-        --theme-hr: hsl(var(--color-hue-main), 30%);
-
-        --theme-header: hsl(var(--color-hue-main), 86%);
-        --theme-header-button-hover: hsl(var(--color-hue-main), 82%);
-        --theme-header-button-active: hsl(var(--color-hue-main), 80%);
-        --theme-header-link-bar: hsl(var(--color-hue-alt), 35%);
-        --theme-header-link-text: hsl(var(--color-hue-alt), 10%);
-        --theme-header-link-text-bg: hsl(var(--color-hue-alt), 45%);
-        --theme-header-link-text-bg-hover: hsl(var(--color-hue-alt), 55%);
-
-        --theme-text-main: hsl(var(--color-hue-main), 7%);
-        --theme-text-main-accent: hsl(var(--color-hue-main), 40%);
-        --theme-text-alt: hsl(var(--color-hue-alt), 7%);
-        --theme-text-alt-accent: hsl(var(--color-hue-alt), 55%);
-        --theme-text-grey: hsl(0, 0%, 60%);
-
-        --theme-card: hsl(var(--color-hue-main), 88%);
-        --theme-card-alt: hsl(var(--color-hue-alt), 88%);
-        --theme-card-alt-outline: hsl(var(--color-hue-alt), 72%);
-        --theme-button: hsl(var(--color-hue-main), 92%);
-        --theme-button-text: hsl(var(--color-hue-alt), 54%);
-        --theme-button-hover: hsl(var(--color-hue-main), 88%);
-        --theme-button-active: hsl(var(--color-hue-main), 84%);
-        --theme-button-inactive: hsl(var(--color-hue-main), 100%);
-        --theme-button-disabled: hsl(var(--color-hue-main), 92%);
+        --color-hue-main: 290;
+        --color-hue-alt: 330;
 
         --header-height: 4rem;
-
         --main-width: 75ch;
+
+        &,
+        &.light {
+          --theme-bg: hsl(var(--color-hue-main), 20%, 98%);
+          --theme-hr: hsl(var(--color-hue-main), 40%, 30%);
+
+          --theme-header: hsl(var(--color-hue-main), 45%, 80%);
+          --theme-header-text: hsl(var(--color-hue-main), 45%, 17%);
+          --theme-header-accent: hsl(var(--color-hue-main), 75%, 40%);
+          --theme-header-button-hover: hsl(var(--color-hue-main), 45%, 76%);
+          --theme-header-button-active: hsl(var(--color-hue-main), 35%, 70%);
+          --theme-header-link-bar: hsl(var(--color-hue-alt), 42%, 65%);
+          --theme-header-link-box: hsl(var(--color-hue-alt), 54%, 56%);
+          --theme-header-link-box-hover: hsl(var(--color-hue-alt), 57%, 58%);
+          --theme-header-link-text: hsl(var(--color-hue-alt), 40%, 10%);
+
+          --theme-text-main: hsl(var(--color-hue-main), 40%, 7%);
+          --theme-text-main-accent: hsl(var(--color-hue-main), 70%, 40%);
+          --theme-text-alt: hsl(var(--color-hue-alt), 40%, 7%);
+          --theme-text-alt-accent: hsl(var(--color-hue-alt), 40%, 55%);
+          --theme-text-grey: hsl(0, 0%, 60%);
+
+          --theme-card: hsl(var(--color-hue-main), 80%, 90%);
+          --theme-card-alt: hsl(var(--color-hue-alt), 80%, 90%);
+          --theme-card-alt-outline: hsl(var(--color-hue-alt), 40%, 72%);
+          --theme-button: hsl(var(--color-hue-main), 60%, 82%);
+          --theme-button-hover: hsl(var(--color-hue-main), 40%, 80%);
+          --theme-button-active: hsl(var(--color-hue-main), 40%, 78%);
+          --theme-button-inactive: hsl(var(--color-hue-main), 40%, 100%);
+          --theme-button-disabled: hsl(var(--color-hue-main), 40%, 92%);
+          --theme-button-text: hsl(var(--color-hue-alt), 80%, 34%);
+        }
+
+        // Dark mode
+        &.dark {
+          --theme-bg: hsl(var(--color-hue-main), 16%, 31%);
+          --theme-hr: hsl(var(--color-hue-main), 20%, 80%);
+
+          --theme-header: hsl(var(--color-hue-main), 30%, 22%);
+          --theme-header-text: hsl(var(--color-hue-main), 45%, 97%);
+          --theme-header-accent: hsl(var(--color-hue-main), 40%, 65%);
+          --theme-header-button-hover: hsl(var(--color-hue-main), 30%, 32%);
+          --theme-header-button-active: hsl(var(--color-hue-main), 30%, 37%);
+          --theme-header-link-bar: hsl(var(--color-hue-alt), 42%, 25%);
+          --theme-header-link-box: hsl(var(--color-hue-alt), 54%, 32%);
+          --theme-header-link-box-hover: hsl(var(--color-hue-alt), 57%, 38%);
+          --theme-header-link-text: hsl(var(--color-hue-alt), 10%, 86%);
+
+          --theme-text-main: hsl(var(--color-hue-main), 40%, 97%);
+          --theme-text-main-accent: hsl(var(--color-hue-main), 55%, 77%);
+          --theme-text-link: hsl(var(--color-hue-main), 70%, 70%);
+          --theme-text-alt: hsl(var(--color-hue-alt), 40%, 7%);
+          --theme-text-alt-accent: hsl(var(--color-hue-alt), 40%, 55%);
+          --theme-text-grey: hsl(0, 0%, 60%);
+
+          --theme-card: hsl(var(--color-hue-main), 25%, 20%);
+          --theme-card-alt: hsl(var(--color-hue-alt), 25%, 20%);
+          --theme-card-alt-outline: hsl(var(--color-hue-alt), 25%, 42%);
+          --theme-button: hsl(var(--color-hue-main), 30%, 37%);
+          --theme-button-hover: hsl(var(--color-hue-main), 25%, 40%);
+          --theme-button-active: hsl(var(--color-hue-main), 25%, 44%);
+          --theme-button-inactive: hsl(var(--color-hue-main), 40%, 100%);
+          --theme-button-disabled: hsl(var(--color-hue-main), 40%, 92%);
+          --theme-button-text: hsl(var(--color-hue-alt), 80%, 34%);
+        }
       }
 
       html {
@@ -205,6 +255,7 @@ let optionalClasses = [
 
       body {
         background-color: var(--theme-bg);
+        color: var(--theme-text-main);
       }
 
       main {
