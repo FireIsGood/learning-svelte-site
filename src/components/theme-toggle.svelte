@@ -18,13 +18,9 @@
     root = document.documentElement;
 
     if (mode === false) {
-      root.classList.remove("light");
-      root.classList.add("dark");
-      console.log("should be dark now");
-    } else {
       root.classList.remove("dark");
-      root.classList.add("light");
-      console.log("should be light now");
+    } else {
+      root.classList.add("dark");
     }
     localStorage.setItem("darkMode", dark.toString());
   }
@@ -141,7 +137,7 @@
     font-size: 2rem;
   }
 
-  :global(.dark) {
+  :global(:root.dark) {
     .icon {
       color: #1e88e5;
     }
@@ -149,7 +145,7 @@
       display: block;
     }
   }
-  :global(.light) {
+  :global(:root:not(.dark)) {
     .icon {
       color: #e65100;
     }
