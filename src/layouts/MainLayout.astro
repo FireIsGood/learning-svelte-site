@@ -118,6 +118,7 @@ let optionalClasses = [
         padding: 0.25em;
         border: 1px solid var(--theme-button-active);
         width: 100%;
+        background-color: var(--theme-input-bg);
 
         &:hover {
           border: 1px solid var(--theme-button-hover);
@@ -125,7 +126,7 @@ let optionalClasses = [
 
         &:disabled {
           color: var(--theme-text-grey);
-          background-color: var(--theme-input-bg);
+          background-color: var(--theme-button-disabled);
         }
       }
 
@@ -244,7 +245,7 @@ let optionalClasses = [
           --theme-button-hover: hsl(var(--color-hue-main), 25%, 40%);
           --theme-button-active: hsl(var(--color-hue-main), 25%, 44%);
           --theme-button-inactive: hsl(var(--color-hue-main), 40%, 100%);
-          --theme-button-disabled: hsl(var(--color-hue-main), 40%, 92%);
+          --theme-button-disabled: hsl(var(--color-hue-main), 50%, 92%);
           --theme-button-text: hsl(var(--color-hue-alt), 80%, 34%);
           --theme-input-bg: hsl(var(--color-hue-alt), 10%, 80%);
         }
