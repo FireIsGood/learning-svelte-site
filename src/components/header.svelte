@@ -1,5 +1,8 @@
 <script>
+  import ThemeToggle from "@components/theme-toggle.svelte";
+
   let showLinks = false;
+
   function toggleLinks() {
     showLinks = !showLinks;
   }
@@ -10,6 +13,7 @@
     <div>
       <slot name="header-main">Header</slot>
     </div>
+    <ThemeToggle />
     <button on:click={toggleLinks} aria-label="Header toggle link visibility">
       <svg
         xmlns="http://www.w3.org/2000/svg"
@@ -35,9 +39,13 @@
   .header-main {
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    width: 100%;
     padding-inline: 1rem;
     background-color: var(--theme-header);
+
+    & > *:nth-child(1) {
+      margin-right: auto;
+    }
   }
 
   button {
