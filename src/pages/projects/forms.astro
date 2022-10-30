@@ -1,0 +1,23 @@
+---
+import MainLayout from "@layouts/MainLayout.astro";
+import Forms from "@components/forms.svelte";
+
+export const title = "Forms";
+export const creationOrder = 14;
+---
+
+<MainLayout title={title}>
+  <section>
+    <p>Building Better Forms</p>
+    <hr />
+    <Forms client:idle />
+  </section>
+</MainLayout>
+
+<style lang="scss">
+  section {
+    > * + * {
+      margin-top: 1rem;
+    }
+  }
+</style>
