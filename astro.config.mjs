@@ -9,6 +9,8 @@ export default defineConfig({
     svelte(),
     image({
       serviceEntryPoint: "@astrojs/image/sharp",
+      // may be useful if your hosting provider allows caching between CI builds
+      cacheDir: "./.cache/image"
     }),
     astroImageTools,
   ],
