@@ -255,6 +255,20 @@ let optionalClasses = [
           --theme-input-bg-invalid: hsl(0, 40%, 70%);
           --theme-input-placeholder: hsl(0, 0%, 25%);
         }
+
+        // Skip to main button
+        .skip-to-main {
+          position: absolute;
+          padding: 1rem;
+          background-color: var(--theme-card);
+          translate: calc(50vw - 50%) -200%;
+          box-shadow: 0 0 10px black;
+          transition: translate 100ms ease;
+
+          &:where(:focus, :active, :hover) {
+            translate: calc(50vw - 50%);
+          }
+        }
       }
 
       html {
@@ -285,8 +299,9 @@ let optionalClasses = [
     </style>
   </head>
   <body>
+    <a href="#main" class="skip-to-main">Skip to main content</a>
     <Header subpage={subpageLink} />
-    <main class={optionalClasses.join(" ")}>
+    <main class={optionalClasses.join(" ")} id="main">
       <slot />
     </main>
   </body>
