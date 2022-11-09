@@ -69,7 +69,7 @@
         class="particle"
         style="--x-direction: {particle.x}; --y-direction: {particle.y}; --hue-rotate: {particle.hue}; --z: {particle.z}"
       >
-        <img src="/assets/mogus.gif" alt="" />
+        <img src="/learning-svelte-site/assets/mogus.gif" alt="" />
       </div>
     {/each}
   </div>
