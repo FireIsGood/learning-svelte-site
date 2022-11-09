@@ -1,0 +1,23 @@
+---
+import MainLayout from "@layouts/MainLayout.astro";
+import Particles from "@components/particles.svelte";
+
+export const title = "Particles";
+export const creationOrder = 15;
+---
+
+<MainLayout title={title}>
+  <section>
+    <p>Particle engine</p>
+    <hr />
+    <Particles client:idle />
+  </section>
+</MainLayout>
+
+<style lang="scss">
+  section {
+    > * + * {
+      margin-top: 1rem;
+    }
+  }
+</style>
