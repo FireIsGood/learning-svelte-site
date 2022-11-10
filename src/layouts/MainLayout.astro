@@ -6,15 +6,18 @@ export interface Props {
   isSubpage?: boolean;
   noPad?: boolean;
   noMaxWidth?: boolean;
+  noOverflowX?: boolean;
 }
 
-const { title, isSubpage, noPad, noMaxWidth } = Astro.props;
+const { title, isSubpage, noPad, noMaxWidth, noOverflowX } = Astro.props;
 const description = "A site I made to learn Svelte";
 
 const subpageLink = isSubpage === false ? null : title;
-let optionalClasses = [
+let optionalBodyClasses: (string | null)[] = [];
+let optionalMainClasses: (string | null)[] = [
   noPad ? "no-pad" : null,
   noMaxWidth ? "no-max-width" : null,
+  noOverflowX ? "no-overflow-x" : null,
 ];
 ---
 
@@ -257,18 +260,6 @@ let optionalClasses = [
         }
 
         // Skip to main button
-        .skip-to-main {
-          position: absolute;
-          padding: 1rem;
-          background-color: var(--theme-card);
-          translate: calc(50vw - 50%) -200%;
-          box-shadow: 0 0 10px black;
-          transition: translate 100ms ease;
-
-          &:where(:focus, :active, :hover) {
-            translate: calc(50vw - 50%);
-          }
-        }
       }
 
       html {
@@ -282,6 +273,7 @@ let optionalClasses = [
 
       main {
         max-width: var(--main-width);
+        min-height: calc(100vh - var(--header-height));
         margin-inline: auto;
         padding: 1rem;
 
@@ -291,17 +283,33 @@ let optionalClasses = [
         &.no-max-width {
           max-width: initial;
         }
+        &.no-overflow-x {
+          overflow-x: hidden;
+        }
 
         > * + * {
           margin-top: 1rem;
         }
       }
+
+      .skip-to-main {
+        position: absolute;
+        padding: 1rem;
+        background-color: var(--theme-card);
+        translate: calc(50vw - 50%) -200%;
+        box-shadow: 0 0 10px black;
+        transition: translate 100ms ease;
+
+        &:where(:focus, :active, :hover) {
+          translate: calc(50vw - 50%);
+        }
+      }
     </style>
   </head>
-  <body>
+  <body class={optionalBodyClasses.join(" ")}>
     <a href="#main" class="skip-to-main">Skip to main content</a>
     <Header subpage={subpageLink} />
-    <main class={optionalClasses.join(" ")} id="main">
+    <main class={optionalMainClasses.join(" ")} id="main">
       <slot />
     </main>
   </body>

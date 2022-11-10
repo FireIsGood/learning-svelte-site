@@ -6,11 +6,11 @@ export const title = "Particles";
 export const creationOrder = 15;
 ---
 
-<MainLayout title={title}>
+<MainLayout title={title} noOverflowX={true}>
   <section>
     <p>Particle engine</p>
     <hr />
-    <Particles client:idle >
+    <Particles client:idle />
   </section>
 </MainLayout>
 
