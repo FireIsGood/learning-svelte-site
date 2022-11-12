@@ -1,4 +1,5 @@
 <script lang="ts">
+  let count: number = 0;
   let particles: Particle[] = [];
   const textList: string[] = [
     "amogus",
@@ -27,6 +28,8 @@
         return;
       }
     }
+
+    count += 1;
 
     // Create a particle
     const z = Math.floor(Math.random() * 50);
@@ -64,6 +67,7 @@
     >
       Among Us
     </button>
+    <p class="counter" style={`--count: ${count}`}>Amongs Us'd: {count}</p>
     {#each particles as particle (particle.id)}
       <div
         class="particle"
@@ -95,6 +99,7 @@
   .img-area {
     position: relative;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     min-height: 50vh;
@@ -107,6 +112,10 @@
     width: clamp(150px, 5vw, 400px);
     border: none;
     user-select: none;
+  }
+  .counter {
+    --count: 0;
+    opacity: calc((var(--count) - 10) / 50);
   }
 
   .particle {
