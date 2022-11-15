@@ -27,7 +27,7 @@
     <label for="bg-2-size">Scale</label>
   </div>
   <div class="bg bg-symbol bg-3" style="--bg-size: {bg3Size}rem">
-    <p>A dot grid</p>
+    <p>A line grid</p>
     <input
       type="range"
       name="bg-3-size"
@@ -39,7 +39,7 @@
     <label for="bg-3-size">Scale</label>
   </div>
   <div class="bg bg-symbol bg-4" style="--bg-size: {bg4Size}rem">
-    <p>A dot grid</p>
+    <p>A dot and line grid with fake paralax</p>
     <input
       type="range"
       name="bg-4-size"
