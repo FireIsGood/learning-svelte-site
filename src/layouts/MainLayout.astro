@@ -187,6 +187,8 @@ let optionalMainClasses: (string | null)[] = [
 
         --header-height: 4rem;
         --main-width: 75ch;
+        --main-height: calc(100vh - var(--header-height));
+        --main-pad: 1rem;
 
         &,
         &.light {
@@ -273,9 +275,8 @@ let optionalMainClasses: (string | null)[] = [
 
       main {
         max-width: var(--main-width);
-        min-height: calc(100vh - var(--header-height));
         margin-inline: auto;
-        padding: 1rem;
+        padding: var(--main-pad);
 
         &.no-pad {
           padding: 0;

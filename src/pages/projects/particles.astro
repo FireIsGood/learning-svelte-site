@@ -6,7 +6,7 @@ export const title = "Particles";
 export const creationOrder = 15;
 ---
 
-<MainLayout title={title} noOverflowX={true}>
+<MainLayout title={title} noOverflowX={true} noPad={true}>
   <section>
     <p>Particle engine</p>
     <hr />
@@ -16,6 +16,9 @@ export const creationOrder = 15;
 
 <style lang="scss">
   section {
+    padding: var(--main-pad);
+    min-height: var(--main-height);
+
     > * + * {
       margin-top: 1rem;
     }
