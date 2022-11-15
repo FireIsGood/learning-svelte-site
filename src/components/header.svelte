@@ -67,24 +67,16 @@
 
   .header-links {
     transition: max-height 250ms ease;
-    overflow-y: hidden;
+    overflow-y: auto;
+    scrollbar-gutter: stable both-edges;
+    background-color: var(--theme-header-link-bar);
   }
 
   .show {
     max-height: 50vh;
-    animation: 1ms delayScrollbar 250ms forwards;
   }
 
   .hide {
     max-height: 0px;
-  }
-
-  @keyframes delayScrollbar {
-    0% {
-      overflow-y: hidden;
-    }
-    100% {
-      overflow-y: auto;
-    }
   }
 </style>
