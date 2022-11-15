@@ -1,0 +1,23 @@
+---
+import MainLayout from "@layouts/MainLayout.astro";
+import CssBackgrounds from "@components/css-backgrounds.svelte";
+
+export const title = "CSS Backgrounds";
+export const creationOrder = 16;
+---
+
+<MainLayout title={title}>
+  <section>
+    <p>Messing around with CSS background effects</p>
+    <hr />
+    <CssBackgrounds client:idle />
+  </section>
+</MainLayout>
+
+<style lang="scss">
+  section {
+    > * + * {
+      margin-top: 1rem;
+    }
+  }
+</style>
