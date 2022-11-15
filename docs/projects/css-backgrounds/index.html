@@ -8,12 +8,12 @@
     <!-- OpenGraph Tags -->
     <meta property="og:type" content="article">
     <meta property="og:locale" content="en">
-    <meta property="og:title" content="Counter">
+    <meta property="og:title" content="CSS Backgrounds">
     <meta property="og:description" content="A site I made to learn Svelte">
     <meta property="og:image" content="/learning-svelte-site/favicon.png">
     <meta property="og:site_name" content="Learning Svelte Site">
     <!-- Title -->
-    <title>Counter</title>
+    <title>CSS Backgrounds</title>
     <meta name="description" content="A site I made to learn Svelte">
     <!-- Google Fonts Preconnect -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -31,8 +31,7 @@
     <!-- Styles -->
     
     
-  <link rel="stylesheet" href="/learning-svelte-site/assets/css-backgrounds.87207799.css" />
-<link rel="stylesheet" href="/learning-svelte-site/assets/events.7e1fd51e.css" />
+  <link rel="stylesheet" href="/learning-svelte-site/assets/events.7e1fd51e.css" />
 <link rel="stylesheet" href="/learning-svelte-site/assets/fancy-card.b972b42e.css" />
 <link rel="stylesheet" href="/learning-svelte-site/assets/fancy-menu.ab4a2123.css" />
 <link rel="stylesheet" href="/learning-svelte-site/assets/forms.7e537242.css" />
@@ -47,17 +46,18 @@
 <link rel="stylesheet" href="/learning-svelte-site/assets/stores.4b32e803.css" />
 <link rel="stylesheet" href="/learning-svelte-site/assets/todo.44dba295.css" />
 <link rel="stylesheet" href="/learning-svelte-site/assets/bindings.982ec116.css" />
-<link rel="stylesheet" href="/learning-svelte-site/assets/index.9ba7c448.css" />
 <link rel="stylesheet" href="/learning-svelte-site/assets/counter.1d6d3151.css" />
+<link rel="stylesheet" href="/learning-svelte-site/assets/index.9ba7c448.css" />
+<link rel="stylesheet" href="/learning-svelte-site/assets/css-backgrounds.87207799.css" />
 <link rel="stylesheet" href="/learning-svelte-site/assets/index.4f6c7d1a.css" /><script type="module">const{classList:e}=document.documentElement,A=e.add.bind(e);A("jpeg");A("png");const g=(B,d)=>{const a=new Image;a.src=`data:image/${B};base64,${d}`,a.onload=A(B)};g("webp","UklGRhoAAABXRUJQVlA4TA0AAAAvAAAAEAcQERGIiP4HAA==");g("avif","AAAAIGZ0eXBhdmlmAAAAAGF2aWZtaWYxbWlhZk1BMUIAAADybWV0YQAAAAAAAAAoaGRscgAAAAAAAAAAcGljdAAAAAAAAAAAAAAAAGxpYmF2aWYAAAAADnBpdG0AAAAAAAEAAAAeaWxvYwAAAABEAAABAAEAAAABAAABGgAAAB0AAAAoaWluZgAAAAAAAQAAABppbmZlAgAAAAABAABhdjAxQ29sb3IAAAAAamlwcnAAAABLaXBjbwAAABRpc3BlAAAAAAAAAAIAAAACAAAAEHBpeGkAAAAAAwgICAAAAAxhdjFDgQ0MAAAAABNjb2xybmNseAACAAIAAYAAAAAXaXBtYQAAAAAAAAABAAEEAQKDBAAAACVtZGF0EgAKCBgANogQEAwgMg8f8D///8WfhwB8+ErK42A=");
 </script></head>
   <body class=" astro-OBSVMRFZ">
     <a href="#main" class="skip-to-main astro-OBSVMRFZ">Skip to main content</a>
-    <style>astro-island,astro-slot{display:contents}</style><script>(self.Astro=self.Astro||{}).load=a=>{(async()=>await(await a())())()},window.dispatchEvent(new Event("astro:load"));var l;{const c={0:t=>t,1:t=>JSON.parse(t,o),2:t=>new RegExp(t),3:t=>new Date(t),4:t=>new Map(JSON.parse(t,o)),5:t=>new Set(JSON.parse(t,o)),6:t=>BigInt(t),7:t=>new URL(t),8:t=>new Uint8Array(JSON.parse(t)),9:t=>new Uint16Array(JSON.parse(t)),10:t=>new Uint32Array(JSON.parse(t))},o=(t,s)=>{if(t===""||!Array.isArray(s))return s;const[e,n]=s;return e in c?c[e](n):void 0};customElements.get("astro-island")||customElements.define("astro-island",(l=class extends HTMLElement{constructor(){super(...arguments);this.hydrate=()=>{if(!this.hydrator||this.parentElement&&this.parentElement.closest("astro-island[ssr]"))return;const s=this.querySelectorAll("astro-slot"),e={},n=this.querySelectorAll("template[data-astro-template]");for(const r of n){const i=r.closest(this.tagName);!i||!i.isSameNode(this)||(e[r.getAttribute("data-astro-template")||"default"]=r.innerHTML,r.remove())}for(const r of s){const i=r.closest(this.tagName);!i||!i.isSameNode(this)||(e[r.getAttribute("name")||"default"]=r.innerHTML)}const a=this.hasAttribute("props")?JSON.parse(this.getAttribute("props"),o):{};this.hydrator(this)(this.Component,a,e,{client:this.getAttribute("client")}),this.removeAttribute("ssr"),window.removeEventListener("astro:hydrate",this.hydrate),window.dispatchEvent(new CustomEvent("astro:hydrate"))}}connectedCallback(){!this.hasAttribute("await-children")||this.firstChild?this.childrenConnectedCallback():new MutationObserver((s,e)=>{e.disconnect(),this.childrenConnectedCallback()}).observe(this,{childList:!0})}async childrenConnectedCallback(){window.addEventListener("astro:hydrate",this.hydrate);let s=this.getAttribute("before-hydration-url");s&&await import(s),this.start()}start(){const s=JSON.parse(this.getAttribute("opts")),e=this.getAttribute("client");if(Astro[e]===void 0){window.addEventListener(`astro:${e}`,()=>this.start(),{once:!0});return}Astro[e](async()=>{const n=this.getAttribute("renderer-url"),[a,{default:r}]=await Promise.all([import(this.getAttribute("component-url")),n?import(n):()=>()=>{}]),i=this.getAttribute("component-export")||"default";if(!i.includes("."))this.Component=a[i];else{this.Component=a;for(const d of i.split("."))this.Component=this.Component[d]}return this.hydrator=r,this.hydrate},s,this)}attributeChangedCallback(){this.hydrator&&this.hydrate()}},l.observedAttributes=["props"],l))}</script><astro-island uid="ZDoj0J" component-url="/learning-svelte-site/header.b617c802.js" component-export="default" renderer-url="/learning-svelte-site/client.6d025dce.js" props="{&quot;class&quot;:[0,&quot;astro-FT7UP2S2&quot;]}" ssr="" client="load" opts="{&quot;name&quot;:&quot;Header&quot;,&quot;value&quot;:true}" await-children=""><header><div class="header-main svelte-1xxtviq"><div class="svelte-1xxtviq"><astro-slot name="header-main"><div class="header-logo astro-FT7UP2S2">
+    <style>astro-island,astro-slot{display:contents}</style><script>(self.Astro=self.Astro||{}).load=a=>{(async()=>await(await a())())()},window.dispatchEvent(new Event("astro:load"));var l;{const c={0:t=>t,1:t=>JSON.parse(t,o),2:t=>new RegExp(t),3:t=>new Date(t),4:t=>new Map(JSON.parse(t,o)),5:t=>new Set(JSON.parse(t,o)),6:t=>BigInt(t),7:t=>new URL(t),8:t=>new Uint8Array(JSON.parse(t)),9:t=>new Uint16Array(JSON.parse(t)),10:t=>new Uint32Array(JSON.parse(t))},o=(t,s)=>{if(t===""||!Array.isArray(s))return s;const[e,n]=s;return e in c?c[e](n):void 0};customElements.get("astro-island")||customElements.define("astro-island",(l=class extends HTMLElement{constructor(){super(...arguments);this.hydrate=()=>{if(!this.hydrator||this.parentElement&&this.parentElement.closest("astro-island[ssr]"))return;const s=this.querySelectorAll("astro-slot"),e={},n=this.querySelectorAll("template[data-astro-template]");for(const r of n){const i=r.closest(this.tagName);!i||!i.isSameNode(this)||(e[r.getAttribute("data-astro-template")||"default"]=r.innerHTML,r.remove())}for(const r of s){const i=r.closest(this.tagName);!i||!i.isSameNode(this)||(e[r.getAttribute("name")||"default"]=r.innerHTML)}const a=this.hasAttribute("props")?JSON.parse(this.getAttribute("props"),o):{};this.hydrator(this)(this.Component,a,e,{client:this.getAttribute("client")}),this.removeAttribute("ssr"),window.removeEventListener("astro:hydrate",this.hydrate),window.dispatchEvent(new CustomEvent("astro:hydrate"))}}connectedCallback(){!this.hasAttribute("await-children")||this.firstChild?this.childrenConnectedCallback():new MutationObserver((s,e)=>{e.disconnect(),this.childrenConnectedCallback()}).observe(this,{childList:!0})}async childrenConnectedCallback(){window.addEventListener("astro:hydrate",this.hydrate);let s=this.getAttribute("before-hydration-url");s&&await import(s),this.start()}start(){const s=JSON.parse(this.getAttribute("opts")),e=this.getAttribute("client");if(Astro[e]===void 0){window.addEventListener(`astro:${e}`,()=>this.start(),{once:!0});return}Astro[e](async()=>{const n=this.getAttribute("renderer-url"),[a,{default:r}]=await Promise.all([import(this.getAttribute("component-url")),n?import(n):()=>()=>{}]),i=this.getAttribute("component-export")||"default";if(!i.includes("."))this.Component=a[i];else{this.Component=a;for(const d of i.split("."))this.Component=this.Component[d]}return this.hydrator=r,this.hydrate},s,this)}attributeChangedCallback(){this.hydrator&&this.hydrate()}},l.observedAttributes=["props"],l))}</script><astro-island uid="Z1m3WAb" component-url="/learning-svelte-site/header.b617c802.js" component-export="default" renderer-url="/learning-svelte-site/client.6d025dce.js" props="{&quot;class&quot;:[0,&quot;astro-FT7UP2S2&quot;]}" ssr="" client="load" opts="{&quot;name&quot;:&quot;Header&quot;,&quot;value&quot;:true}" await-children=""><header><div class="header-main svelte-1xxtviq"><div class="svelte-1xxtviq"><astro-slot name="header-main"><div class="header-logo astro-FT7UP2S2">
     <a href="/learning-svelte-site" title="Home" class="astro-FT7UP2S2">
       <h1 class="astro-FT7UP2S2">Learning Svelte Site</h1>
     </a>
-    <span class="slash astro-FT7UP2S2">/</span><p class="subpage astro-FT7UP2S2">Counter</p>
+    <span class="slash astro-FT7UP2S2">/</span><p class="subpage astro-FT7UP2S2">CSS Backgrounds</p>
   </div></astro-slot></div>
     <button title="Toggle dark mode" class="svelte-z2piq6"><div class="icon svelte-z2piq6"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" preserveAspectRatio="xMidYMid meet" viewBox="0 0 36 36" class="sun svelte-z2piq6"><path fill="currentColor" d="M18 6.31a1 1 0 0 0 1-1v-3.4a1 1 0 0 0-2 0v3.4a1 1 0 0 0 1 1Z" class="clr-i-outline clr-i-outline-path-1"></path><path fill="currentColor" d="M18 29.69a1 1 0 0 0-1 1v3.4a1 1 0 0 0 2 0v-3.4a1 1 0 0 0-1-1Z" class="clr-i-outline clr-i-outline-path-2"></path><path fill="currentColor" d="M8.32 9.74A1 1 0 0 0 9 10a1 1 0 0 0 .71-.29a1 1 0 0 0 0-1.42L7.33 5.92a1 1 0 0 0-1.41 1.41Z" class="clr-i-outline clr-i-outline-path-3"></path><path fill="currentColor" d="M27.68 26.26a1 1 0 1 0-1.42 1.42l2.41 2.4a1 1 0 0 0 .71.3a1 1 0 0 0 .7-.3a1 1 0 0 0 0-1.41Z" class="clr-i-outline clr-i-outline-path-4"></path><path fill="currentColor" d="M6.31 18a1 1 0 0 0-1-1h-3.4a1 1 0 0 0 0 2h3.4a1 1 0 0 0 1-1Z" class="clr-i-outline clr-i-outline-path-5"></path><path fill="currentColor" d="M34.09 17h-3.4a1 1 0 1 0 0 2h3.4a1 1 0 0 0 0-2Z" class="clr-i-outline clr-i-outline-path-6"></path><path fill="currentColor" d="m8.32 26.26l-2.4 2.41a1 1 0 0 0 .7 1.71a1 1 0 0 0 .71-.3l2.41-2.4a1 1 0 1 0-1.42-1.42Z" class="clr-i-outline clr-i-outline-path-7"></path><path fill="currentColor" d="M27 10a1 1 0 0 0 .71-.29l2.4-2.41a1 1 0 0 0 0-1.41a1 1 0 0 0-1.41 0l-2.41 2.4a1 1 0 0 0 0 1.42A1 1 0 0 0 27 10Z" class="clr-i-outline clr-i-outline-path-8"></path><path fill="currentColor" d="M18.13 7.75a10.13 10.13 0 1 0 10 10.13a10.08 10.08 0 0 0-10-10.13Zm0 18.25a8.13 8.13 0 1 1 8-8.12a8.08 8.08 0 0 1-8 8.12Z" class="clr-i-outline clr-i-outline-path-9"></path><path fill="none" d="M0 0h36v36H0z"></path></svg>
     <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" preserveAspectRatio="xMidYMid meet" viewBox="0 0 36 36" class="moon svelte-z2piq6"><path fill="currentColor" d="M29.2 26.72a12.07 12.07 0 0 1-6.3-22.28A13.68 13.68 0 0 0 19.49 4a14 14 0 0 0 0 28a13.82 13.82 0 0 0 10.9-5.34a11.71 11.71 0 0 1-1.19.06Z" class="clr-i-solid clr-i-solid-path-1"></path><path fill="none" d="M0 0h36v36H0z"></path></svg></div>
@@ -106,15 +106,23 @@
 
 
     <main class="   astro-OBSVMRFZ" id="main">
-      <script>(self.Astro=self.Astro||{}).idle=t=>{const e=async()=>{await(await t())()};"requestIdleCallback"in window?window.requestIdleCallback(e):setTimeout(e,200)},window.dispatchEvent(new Event("astro:idle"));</script><section class="astro-YD3QQUCZ">
-    <p class="astro-YD3QQUCZ">there should be a counter below this</p>
-    <hr class="astro-YD3QQUCZ">
-    <div class="astro-YD3QQUCZ">
-      <astro-island uid="2rTFc" component-url="/learning-svelte-site/counter.5523b9b1.js" component-export="default" renderer-url="/learning-svelte-site/client.6d025dce.js" props="{&quot;class&quot;:[0,&quot;astro-YD3QQUCZ&quot;]}" ssr="" client="idle" opts="{&quot;name&quot;:&quot;Counter&quot;,&quot;value&quot;:true}" await-children=""><div class="container svelte-1n5a8hx"><div class="svelte-1n5a8hx"><button>Add 1</button>
-    <button>Subtract 1</button></div>
-  <p class="svelte-1n5a8hx">Count is: 0, double of which is 0</p>
+      <script>(self.Astro=self.Astro||{}).idle=t=>{const e=async()=>{await(await t())()};"requestIdleCallback"in window?window.requestIdleCallback(e):setTimeout(e,200)},window.dispatchEvent(new Event("astro:idle"));</script><section class="astro-O3R2FKXV">
+    <p class="astro-O3R2FKXV">Messing around with CSS background effects</p>
+    <hr class="astro-O3R2FKXV">
+    <astro-island uid="2gWnxX" component-url="/learning-svelte-site/css-backgrounds.6bf7044e.js" component-export="default" renderer-url="/learning-svelte-site/client.6d025dce.js" props="{&quot;class&quot;:[0,&quot;astro-O3R2FKXV&quot;]}" ssr="" client="idle" opts="{&quot;name&quot;:&quot;CssBackgrounds&quot;,&quot;value&quot;:true}" await-children=""><div class="container svelte-1vcbjs8"><div class="bg bg-1 svelte-1vcbjs8"><p class="svelte-1vcbjs8">A subtle gradient</p>
+    <p class="svelte-1vcbjs8">Generated via
+      <a href="https://www.schemecolor.com/" target="_blank">SchemeColor.com
+      </a></p></div>
+  <div class="bg bg-symbol bg-2 svelte-1vcbjs8" style="--bg-size: 1rem"><p class="svelte-1vcbjs8">A dot grid</p>
+    <input type="range" name="bg-2-size" min="1" max="5" step=".25" class="svelte-1vcbjs8" value="1">
+    <label for="bg-2-size" class="svelte-1vcbjs8">Scale</label></div>
+  <div class="bg bg-symbol bg-3 svelte-1vcbjs8" style="--bg-size: 1rem"><p class="svelte-1vcbjs8">A dot grid</p>
+    <input type="range" name="bg-3-size" min="1" max="5" step=".25" class="svelte-1vcbjs8" value="1">
+    <label for="bg-3-size" class="svelte-1vcbjs8">Scale</label></div>
+  <div class="bg bg-symbol bg-4 svelte-1vcbjs8" style="--bg-size: 1rem"><p class="svelte-1vcbjs8">A dot grid</p>
+    <input type="range" name="bg-4-size" min="1" max="5" step=".25" class="svelte-1vcbjs8" value="1">
+    <label for="bg-4-size" class="svelte-1vcbjs8">Scale</label></div>
 </div></astro-island>
-    </div>
   </section>
     </main>
   </body></html>
