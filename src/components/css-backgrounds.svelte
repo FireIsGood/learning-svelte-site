@@ -2,6 +2,23 @@
   let bg2Size: number = 1;
   let bg3Size: number = 1;
   let bg4Size: number = 1;
+
+  let bg5Size: number = 1;
+  let bg5Rotation: number = 0;
+
+  let bg6Size: number = 1;
+  let bg6Rotation: number = 0;
+  let bg6RotationX1: number;
+  let bg6RotationY1: number;
+  let bg6RotationX2: number;
+  let bg6RotationY2: number;
+
+  $: {
+    bg6RotationX1 = Math.sin(2 * Math.PI * ((bg6Rotation + 90) / 360));
+    bg6RotationY1 = Math.cos(2 * Math.PI * ((bg6Rotation + 90) / 360));
+    bg6RotationX2 = Math.sin(2 * Math.PI * ((bg6Rotation + 270) / 360));
+    bg6RotationY2 = Math.cos(2 * Math.PI * ((bg6Rotation + 270) / 360));
+  }
 </script>
 
 <div class="container">
@@ -49,6 +66,59 @@
       step=".25"
     />
     <label for="bg-4-size">Scale</label>
+  </div>
+  <p>And now with rotations</p>
+  <div
+    class="bg bg-symbol bg-5"
+    style="--bg-size: {bg5Size}rem; --bg-rotation: {bg5Rotation}"
+  >
+    <p>A line grid with tiled rotations</p>
+    <input
+      type="range"
+      name="bg-5-size"
+      bind:value={bg5Size}
+      min="1"
+      max="5"
+      step=".25"
+    />
+    <label for="bg-5-size">Scale</label>
+    <input
+      type="range"
+      name="bg-5-rotation"
+      bind:value={bg5Rotation}
+      min="0"
+      max="360"
+      step="1"
+    />
+    <label for="bg-5-rotation">Rotation</label>
+  </div>
+  <div
+    class="bg bg-symbol bg-6"
+    style="--bg-size: {bg6Size}rem;
+           --bg-rotation-x1: {bg6RotationX1};
+           --bg-rotation-y1: {bg6RotationY1};
+           --bg-rotation-x2: {bg6RotationX2};
+           --bg-rotation-y2: {bg6RotationY2};"
+  >
+    <p>A dot grid with tiled rotations</p>
+    <input
+      type="range"
+      name="bg-6-size"
+      bind:value={bg6Size}
+      min="1"
+      max="5"
+      step=".25"
+    />
+    <label for="bg-6-size">Scale</label>
+    <input
+      type="range"
+      name="bg-6-rotation"
+      bind:value={bg6Rotation}
+      min="0"
+      max="360"
+      step="1"
+    />
+    <label for="bg-6-rotation">Rotation</label>
   </div>
 </div>
 
@@ -121,7 +191,7 @@
   }
 
   .bg-2 {
-    background-image: radial-gradient(var(--symbol-color) 5%, transparent 10%);
+    background-image: radial-gradient(var(--symbol-color) 10%, transparent 10%);
   }
   .bg-3 {
     $bg-gradient: transparent 48%, var(--symbol-color), var(--symbol-color),
@@ -133,15 +203,43 @@
   .bg-4 {
     --bg-size-alt: calc(var(--bg-size) + 0.75rem);
 
-    $bg-gradient: var(--symbol-color), transparent 2%, transparent 98%,
+    $bg-gradient: var(--symbol-color), transparent 4%, transparent 96%,
       var(--symbol-color);
 
     background-image: radial-gradient(
-        var(--symbol-color-alt) 5%,
+        var(--symbol-color-alt) 10%,
         transparent 10%
       ),
       linear-gradient($bg-gradient), linear-gradient(90deg, $bg-gradient);
     background-size: var(--bg-size-alt) var(--bg-size-alt),
       var(--bg-size) var(--bg-size), var(--bg-size) var(--bg-size);
+  }
+
+  .bg-5 {
+    $bg-gradient: transparent 48%, var(--symbol-color), var(--symbol-color),
+      transparent 52%;
+
+    background-image: linear-gradient(
+        calc(var(--bg-rotation, 0) * 1deg),
+        $bg-gradient
+      ),
+      linear-gradient(calc((var(--bg-rotation, 0) + 90) * 1deg), $bg-gradient);
+    background-size: var(--bg-size) var(--bg-size),
+      var(--bg-size) var(--bg-size);
+  }
+  .bg-6 {
+    $bg-gradient: var(--symbol-color) 10%, transparent 10%;
+
+    background-size: calc(var(--bg-size) * 2) calc(var(--bg-size) * 2) !important;
+    background-image: radial-gradient(
+        circle at calc(var(--bg-rotation-x1) * 25% + 50%)
+          calc(var(--bg-rotation-y1) * 25% + 50%),
+        $bg-gradient
+      ),
+      radial-gradient(
+        circle at calc(var(--bg-rotation-x2) * 25% + 50%)
+          calc(var(--bg-rotation-y2) * 25% + 50%),
+        $bg-gradient
+      );
   }
 </style>
