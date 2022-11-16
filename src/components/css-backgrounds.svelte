@@ -125,13 +125,14 @@
   </div>
   <p>
     Just realized that I can make this rotate correctly if I just switch to
-    repeating gradients
+    repeating gradients, although doing this makes the background-size
+    transition not work as well as only working with linear gradients
   </p>
   <div
     class="bg bg-7"
     style="--bg-size: {bg7Size}; --bg-rotation: {bg7Rotation}"
   >
-    <p>A line grid with tiled rotations</p>
+    <p>A line grid with real rotations</p>
     <input
       type="range"
       name="bg-7-size"
