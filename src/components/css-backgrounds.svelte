@@ -19,6 +19,9 @@
     bg6RotationX2 = Math.sin(2 * Math.PI * ((bg6Rotation + 270) / 360));
     bg6RotationY2 = Math.cos(2 * Math.PI * ((bg6Rotation + 270) / 360));
   }
+
+  let bg7Size: number = 1;
+  let bg7Rotation: number = 0;
 </script>
 
 <div class="container">
@@ -120,6 +123,34 @@
     />
     <label for="bg-6-rotation">Rotation</label>
   </div>
+  <p>
+    Just realized that I can make this rotate correctly if I just switch to
+    repeating gradients
+  </p>
+  <div
+    class="bg bg-7"
+    style="--bg-size: {bg7Size}; --bg-rotation: {bg7Rotation}"
+  >
+    <p>A line grid with tiled rotations</p>
+    <input
+      type="range"
+      name="bg-7-size"
+      bind:value={bg7Size}
+      min="1"
+      max="5"
+      step=".25"
+    />
+    <label for="bg-7-size">Scale</label>
+    <input
+      type="range"
+      name="bg-7-rotation"
+      bind:value={bg7Rotation}
+      min="0"
+      max="1"
+      step=".01"
+    />
+    <label for="bg-7-rotation">Rotation</label>
+  </div>
 </div>
 
 <style lang="scss">
@@ -127,6 +158,7 @@
     --bg-color: 33, 33, 33;
     --symbol-color: #474554;
     --symbol-color-alt: #324b4c;
+    --transition-fast: 150ms ease-out;
   }
 
   // General Styles
@@ -157,7 +189,7 @@
     background-size: var(--bg-size) var(--bg-size);
     background-position: center;
 
-    transition: background-size 150ms ease-out;
+    transition: background-size var(--transition-fast);
 
     > p {
       border-radius: 1ch;
@@ -239,6 +271,22 @@
       radial-gradient(
         circle at calc(var(--bg-rotation-x2) * 25% + 50%)
           calc(var(--bg-rotation-y2) * 25% + 50%),
+        $bg-gradient
+      );
+  }
+
+  .bg-7 {
+    $bg-gradient: transparent, transparent calc(var(--bg-size) * 0.48rem),
+      var(--symbol-color), var(--symbol-color),
+      transparent calc(var(--bg-size) * 0.52rem),
+      transparent calc(var(--bg-size) * 1rem);
+
+    background-image: repeating-linear-gradient(
+        calc(var(--bg-rotation) * 0.25turn),
+        $bg-gradient
+      ),
+      repeating-linear-gradient(
+        calc(var(--bg-rotation) * 0.25turn + 0.25turn),
         $bg-gradient
       );
   }
