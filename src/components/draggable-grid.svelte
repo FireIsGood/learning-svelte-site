@@ -21,17 +21,17 @@
   };
 
   onMount(() => {
-    dragArea.addEventListener("mousedown", (e: PointerEvent) => {
+    dragArea.addEventListener("pointerdown", (e: PointerEvent) => {
       dragging = true;
       startPosX = e.clientX;
       startPosY = e.clientY;
 
       // Handle mouse movements
-      dragArea.addEventListener("mousemove", handleDrag);
+      dragArea.addEventListener("pointermove", handleDrag);
 
       // Handle mouse up
-      dragArea.addEventListener("mouseup", () => {
-        dragArea.removeEventListener("mousemove", handleDrag);
+      dragArea.addEventListener("pointerup", () => {
+        dragArea.removeEventListener("pointermove", handleDrag);
 
         dragging = false;
         offsetX += newPosX;
@@ -51,12 +51,12 @@
   <div class="info">
     <p>drag: {dragging}</p>
     <div>
-      <p>x: {newPosX}</p>
-      <p>y: {newPosY}</p>
+      <p>x: {Math.floor(newPosX)}</p>
+      <p>y: {Math.floor(newPosY)}</p>
     </div>
     <div>
-      <p>𐤃x: {offsetX}</p>
-      <p>𐤃y: {offsetY}</p>
+      <p>𐤃x: {Math.floor(offsetX)}</p>
+      <p>𐤃y: {Math.floor(offsetY)}</p>
     </div>
   </div>
   <div class="item"><p>I'm an item!</p></div>
@@ -73,6 +73,7 @@
     overflow: hidden;
     user-select: none;
     cursor: grab;
+    touch-action: none; // this is kinda jank because there's technically more page but otherwise it won't click
     background-image: radial-gradient(
       var(--theme-card-alt) 10%,
       transparent 10%

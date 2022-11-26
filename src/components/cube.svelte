@@ -49,7 +49,7 @@
 
 <style lang="scss">
   .container {
-    --cube-width: 15vw;
+    --cube-width: 20vmax;
     width: var(--cube-width);
     height: var(--cube-width);
   }
