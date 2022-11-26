@@ -1,0 +1,13 @@
+---
+import MainLayout from "@layouts/MainLayout.astro";
+import DraggableGrid from "@components/draggable-grid.svelte";
+
+export const title = "Draggable Grid";
+export const creationOrder = 17;
+---
+
+<MainLayout title={title} noPad={true} noMaxWidth={true}>
+  <DraggableGrid client:idle />
+</MainLayout>
+
+<style lang="scss"></style>
