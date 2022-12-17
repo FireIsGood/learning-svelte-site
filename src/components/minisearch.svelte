@@ -29,7 +29,7 @@
 </script>
 
 <div class="container">
-  <label for="search">Search:</label>
+  <label for="search">Search {cards.length} items:</label>
   <input
     name="search names"
     id="search"
@@ -91,6 +91,8 @@
       }
       p {
         margin-block: 0.2rem;
+        padding-inline: 1ch;
+        font-size: smaller;
       }
     }
   }
