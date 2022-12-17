@@ -1,4 +1,5 @@
 <script lang="ts">
+  import MiniSearch from "minisearch";
   type Card = {
     text: string;
   };
@@ -7,18 +8,21 @@
   let cardsFiltered = [];
   let input = "";
 
+  // Import minisearch json and options
+  export let serializedIndex;
+  export let miniSearchOptions;
+  const miniSearch = MiniSearch.loadJSON(serializedIndex, miniSearchOptions);
+
+  let suggestion = "";
+
   $: {
     if (input !== "") {
-      cardsFiltered = cards
-        .filter(
-          (card) =>
-            card.text.slice(0, input.length).toLowerCase() ===
-            input.toLowerCase()
-        )
-        .sort((card) =>
-          card.text.toLowerCase() === input.toLowerCase() ? -1 : 1
-        );
+      suggestion = miniSearch
+        .search(input, { prefix: true })
+        .map((item) => cards[item.id]);
+      cardsFiltered = suggestion;
     } else {
+      suggestion = "";
       cardsFiltered = cards;
     }
   }
@@ -27,6 +31,12 @@
 <div class="container">
   <input type="text" bind:value={input} />
   <p>{input !== "" ? input : "There is no input"}</p>
+  <p>
+    <strong>MiniSearch indexed:</strong>
+    {suggestion !== ""
+      ? suggestion.map((item) => item.text)
+      : "No suggestions..."}
+  </p>
   <div class="card-list">
     {#each cardsFiltered as card}
       <div class="card">
@@ -35,12 +45,16 @@
       </div>
     {/each}
   </div>
-  <p>{cardsFiltered.map((card) => card.text)}</p>
 </div>
 
 <style lang="scss">
-  .container > * + * {
-    margin-top: 1rem;
+  .container {
+    max-width: var(--main-width);
+    margin-inline: auto;
+
+    > * + * {
+      margin-top: 1rem;
+    }
   }
 
   .card-list {

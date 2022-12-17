@@ -5,18 +5,61 @@ import MiniSearch from "@components/minisearch.svelte";
 export const title = "MiniSearch";
 export const creationOrder = 18;
 
-const cards = [
-  { text: "Juan" },
-  { text: "Rick" },
-  { text: "Alexander" },
-  { text: "Alex" },
-  { text: "Lorea" },
-  { text: "Anton" },
-];
+// const cards = [
+//   { id: 0, text: "Juan" },
+//   { id: 1, text: "Rick" },
+//   { id: 2, text: "Alexander" },
+//   { id: 3, text: "Alex" },
+//   { id: 4, text: "Lorea" },
+//   { id: 5, text: "Anton" },
+// ];
+
+const nameCount = 100;
+const cards = await fetch(
+  `https://random-data-api.com/api/name/random_name?size=${nameCount}`
+)
+  .then((res) => res.json())
+  .then((data) => {
+    const parsed = [];
+    data.map((item, i) => {
+      parsed.push({ id: 0, text: item.first_name });
+      parsed.push({ id: 0, text: item.middle_name });
+      parsed.push({ id: 0, text: item.last_name });
+    });
+    parsed.forEach((item, id) => item.id = id)
+    console.log(parsed);
+    return parsed;
+  });
+
+import MiniSearchObject from "minisearch";
+
+// Minisearch indexing and
+const miniSearchOptions = {
+  fields: ["text"],
+  storeFields: ["text"],
+};
+let miniSearch = new MiniSearchObject(miniSearchOptions);
+
+miniSearch.addAll(cards);
+const serializedIndex = JSON.stringify(miniSearch);
 ---
 
-<MainLayout title={title}>
-  <MiniSearch client:idle {cards} />
+<MainLayout title={title} noPad={true} noMaxWidth={true}>
+  <main>
+    <MiniSearch
+      client:idle
+      {cards}
+      serializedIndex={serializedIndex}
+      {miniSearchOptions}
+    />
+  </main>
 </MainLayout>
 
-<style lang="scss"></style>
+<style lang="scss">
+  main {
+    max-height: var(--main-height);
+    padding: 1rem;
+    overflow: auto;
+    scrollbar-gutter: stable both-edges;
+  }
+</style>
