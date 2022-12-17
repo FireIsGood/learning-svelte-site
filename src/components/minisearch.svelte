@@ -51,14 +51,14 @@
       ? suggestion.map((item) => item.text).join(", ")
       : "No suggestions..."}
   </p>
-  <div class="card-list">
+  <ul class="card-list">
     {#each showAll ? cardsFiltered : cardsFiltered.slice(0, cutoffLength) as card}
-      <div class="card">
+      <li class="card">
         <img src="https://via.placeholder.com/100" alt="" />
         <p>{card.text}</p>
-      </div>
+      </li>
     {/each}
-  </div>
+  </ul>
   {#if cardsFiltered.length >= 24 && !showAll}
     <button class="show-all" on:click={() => (showAll = true)}>Show all</button>
   {/if}
