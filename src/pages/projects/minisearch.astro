@@ -1,0 +1,22 @@
+---
+import MainLayout from "@layouts/MainLayout.astro";
+import MiniSearch from "@components/minisearch.svelte";
+
+export const title = "MiniSearch";
+export const creationOrder = 18;
+
+const cards = [
+  { text: "Juan" },
+  { text: "Rick" },
+  { text: "Alexander" },
+  { text: "Alex" },
+  { text: "Lorea" },
+  { text: "Anton" },
+];
+---
+
+<MainLayout title={title}>
+  <MiniSearch client:idle {cards} />
+</MainLayout>
+
+<style lang="scss"></style>
