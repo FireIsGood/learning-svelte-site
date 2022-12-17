@@ -22,11 +22,15 @@ const cards = await fetch(
   .then((data) => {
     const parsed = [];
     data.map((item, i) => {
+      parsed.push({ id: 0, text: item.name });
+      parsed.push({ id: 0, text: item.two_word_name });
       parsed.push({ id: 0, text: item.first_name });
       parsed.push({ id: 0, text: item.middle_name });
       parsed.push({ id: 0, text: item.last_name });
+      parsed.push({ id: 0, text: item.male_first_name });
+      parsed.push({ id: 0, text: item.female_first_name });
     });
-    parsed.forEach((item, id) => item.id = id)
+    parsed.forEach((item, id) => (item.id = id));
     return parsed;
   });
 
