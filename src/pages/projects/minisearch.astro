@@ -27,7 +27,6 @@ const cards = await fetch(
       parsed.push({ id: 0, text: item.last_name });
     });
     parsed.forEach((item, id) => item.id = id)
-    console.log(parsed);
     return parsed;
   });
 
