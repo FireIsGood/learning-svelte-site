@@ -29,12 +29,18 @@
 </script>
 
 <div class="container">
-  <input type="text" bind:value={input} />
-  <p>{input !== "" ? input : "There is no input"}</p>
+  <label for="search">Search:</label>
+  <input
+    name="search names"
+    id="search"
+    type="text"
+    bind:value={input}
+    placeholder="Type a name..."
+  />
   <p>
     <strong>MiniSearch indexed:</strong>
     {suggestion !== ""
-      ? suggestion.map((item) => item.text)
+      ? suggestion.map((item) => item.text).join(", ")
       : "No suggestions..."}
   </p>
   <div class="card-list">
@@ -53,7 +59,7 @@
     margin-inline: auto;
 
     > * + * {
-      margin-top: 1rem;
+      margin-top: 0.5rem;
     }
   }
 
@@ -64,8 +70,6 @@
     padding: 0.25rem;
     grid-template-columns: repeat(auto-fit, var(--grid-width));
     justify-content: center;
-
-    outline: 1px solid black;
 
     .card {
       min-height: 6rem;
