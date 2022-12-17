@@ -20,13 +20,11 @@
   let cutoffLengthBase: number = 24;
   let cutoffLengthSearch: number = 12;
 
-  let cutoffLength: number = 24;
-
   $: {
     if (input !== "") {
       suggestion = miniSearch
         .search(input, { prefix: true })
-        .map((item) => cards[item.id]);
+        .map((index) => cards[index.id]);
       cardsFiltered = suggestion;
     } else {
       suggestion = "";
@@ -52,7 +50,7 @@
       : "No suggestions..."}
   </p>
   <ul class="card-list">
-    {#each showAll ? cardsFiltered : cardsFiltered.slice(0, cutoffLength) as card}
+    {#each showAll ? cardsFiltered : cardsFiltered.slice(0, input === "" ? cutoffLengthBase : cutoffLengthSearch) as card}
       <li class="card">
         <img src="https://via.placeholder.com/100" alt="" />
         <p>{card.text}</p>
