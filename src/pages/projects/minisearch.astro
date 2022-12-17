@@ -5,14 +5,10 @@ import MiniSearch from "@components/minisearch.svelte";
 export const title = "MiniSearch";
 export const creationOrder = 18;
 
-// const cards = [
-//   { id: 0, text: "Juan" },
-//   { id: 1, text: "Rick" },
-//   { id: 2, text: "Alexander" },
-//   { id: 3, text: "Alex" },
-//   { id: 4, text: "Lorea" },
-//   { id: 5, text: "Anton" },
-// ];
+type Card = {
+  id: Number;
+  text: String;
+};
 
 const nameCount = 100;
 const cards = await fetch(
@@ -20,8 +16,8 @@ const cards = await fetch(
 )
   .then((res) => res.json())
   .then((data) => {
-    const parsed = [];
-    data.map((item, i) => {
+    const parsed: Card[] = [];
+    data.map((item: any, i: number) => {
       parsed.push({ id: 0, text: item.name });
       parsed.push({ id: 0, text: item.two_word_name });
       parsed.push({ id: 0, text: item.first_name });
@@ -51,9 +47,9 @@ const serializedIndex = JSON.stringify(miniSearch);
   <main>
     <MiniSearch
       client:idle
-      {cards}
+      cards={cards}
       serializedIndex={serializedIndex}
-      {miniSearchOptions}
+      miniSearchOptions={miniSearchOptions}
     />
   </main>
 </MainLayout>

@@ -1,10 +1,12 @@
 <script lang="ts">
   import MiniSearch from "minisearch";
+
   type Card = {
-    text: string;
+    id: Number;
+    text: String;
   };
 
-  export let cards: Card[] = []; // items to be displayed
+  export let cards: Card[] = [{ id: 0, text: "This should never appear" }]; // items to be displayed
   let cardsFiltered = [];
   let input = "";
 
@@ -13,7 +15,12 @@
   export let miniSearchOptions;
   const miniSearch = MiniSearch.loadJSON(serializedIndex, miniSearchOptions);
 
-  let suggestion = "";
+  let suggestion: String = "";
+  let showAll: Boolean = false;
+  let cutoffLengthBase: number = 24;
+  let cutoffLengthSearch: number = 12;
+
+  let cutoffLength: number = 24;
 
   $: {
     if (input !== "") {
@@ -35,6 +42,7 @@
     id="search"
     type="text"
     bind:value={input}
+    on:input={() => (showAll = false)}
     placeholder="Type a name..."
   />
   <p>
@@ -44,13 +52,16 @@
       : "No suggestions..."}
   </p>
   <div class="card-list">
-    {#each cardsFiltered as card}
+    {#each showAll ? cardsFiltered : cardsFiltered.slice(0, cutoffLength) as card}
       <div class="card">
         <img src="https://via.placeholder.com/100" alt="" />
         <p>{card.text}</p>
       </div>
     {/each}
   </div>
+  {#if cardsFiltered.length >= 24}
+    <button class="show-all" on:click={() => (showAll = true)}>Show all</button>
+  {/if}
 </div>
 
 <style lang="scss">
@@ -95,5 +106,10 @@
         font-size: smaller;
       }
     }
+  }
+
+  .show-all {
+    display: block;
+    margin-inline: auto;
   }
 </style>
