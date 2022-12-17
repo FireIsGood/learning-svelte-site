@@ -59,7 +59,7 @@
       </div>
     {/each}
   </div>
-  {#if cardsFiltered.length >= 24}
+  {#if cardsFiltered.length >= 24 && !showAll}
     <button class="show-all" on:click={() => (showAll = true)}>Show all</button>
   {/if}
 </div>
